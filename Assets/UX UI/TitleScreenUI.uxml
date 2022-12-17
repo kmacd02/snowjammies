@@ -1,0 +1,9 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <ui:VisualElement style="width: 350px;">
+        <ui:VisualElement name="Container" class="button" style="height: 592px; width: 559px; justify-content: center; align-items: auto; flex-direction: column; margin-left: 300px; margin-right: 300px; position: relative; flex-wrap: nowrap; -unity-text-align: upper-center;">
+            <ui:Button text="Play" display-tooltip-when-elided="true" name="PlayButton" class="button" />
+            <ui:Button text="Settings" display-tooltip-when-elided="true" name="SettingsButton" class="button" />
+            <ui:Button text="Quit" display-tooltip-when-elided="true" name="QuitButton" class="button" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
