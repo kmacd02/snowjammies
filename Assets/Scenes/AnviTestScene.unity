@@ -232,6 +232,7 @@ GameObject:
   - component: {fileID: 1128878690}
   - component: {fileID: 1128878692}
   - component: {fileID: 1128878691}
+  - component: {fileID: 1128878693}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -339,6 +340,68 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88a5706b0d2524127a5ac5aeb7c76428, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  heldItem: 
+  combiner: {fileID: 1128878693}
+--- !u!114 &1128878693
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1128878688}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d4b1d951049b66478fdfde7ec7e1ef2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item1: 
+  item2: 
+  mover: {fileID: 1781122157}
+--- !u!1 &1781122156
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1781122158}
+  - component: {fileID: 1781122157}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1781122157
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1781122156}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42a76da7e729140dcb0a4ac3afa9afb7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  status: 0
+--- !u!4 &1781122158
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1781122156}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -55.82112, y: 137.09914, z: -3.271684}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &3120757845720941990
 PrefabInstance:
   m_ObjectHideFlags: 0
