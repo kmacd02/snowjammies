@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    public int status; //0 = continue, 1 = win, 2 = neutral, 3 = fail
+    public int status; //0 = continue, 1 = win/fail, 2 = neutral
 
     //TODO: Add array of sprites for gameover screens
 
