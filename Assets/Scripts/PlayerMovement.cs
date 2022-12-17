@@ -53,7 +53,7 @@ public class PlayerMovement : MonoBehaviour
         if(heldItem != "" && collision.gameObject.CompareTag("Workspace"))
         {
             //TODO: Create item game object in workspace — set off some flag!
-
+            combiner.addItem(heldItem);
             //Reset heldItem
             heldItem = "";
         }
