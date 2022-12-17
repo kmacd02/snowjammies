@@ -17,6 +17,7 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] CombiningItems combiner;
 
+    private GameObject collidedObject = null;
 
     // Start is called before the first frame update
     void Start()
@@ -38,8 +39,12 @@ public class PlayerMovement : MonoBehaviour
         yMove = movementVector.y;
     }
 
-    private void OnPickUp(Collider2D collision)
+    private void OnPickUp(/*Collider2D collision*/)
     {
+        if (collidedObject == null)
+            return;
+
+        BoxCollider2D collision = collidedObject.GetComponent<BoxCollider2D>();
         if(heldItem == "" && collision.gameObject.CompareTag("Item"))
         {
             //TODO: Display held item in UI
@@ -48,6 +53,8 @@ public class PlayerMovement : MonoBehaviour
             heldItem = collision.gameObject.GetComponent<Item>().ItemName;
             //Destroy game object
             Destroy(collision.gameObject);
+
+            Debug.Log(heldItem);
         }
 
         if(heldItem != "" && collision.gameObject.CompareTag("Workspace"))
@@ -57,5 +64,25 @@ public class PlayerMovement : MonoBehaviour
             //Reset heldItem
             heldItem = "";
         }
+        else if (collision.gameObject.CompareTag("Workspace"))
+        {
+            combiner.reset();
+        }
+
+        if(heldItem != "" && collision.gameObject.CompareTag("TrashCan"))
+        {
+            heldItem = "";
+            //TODO: Put item back where it was
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        collidedObject = collision.gameObject;
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        collidedObject = null;
     }
 }
