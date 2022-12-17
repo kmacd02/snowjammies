@@ -10,6 +10,9 @@ public class GameManager : MonoBehaviour
 {
     public int status; //0 = continue, 1 = win/fail, 2 = neutral
     [SerializeField] GameObject gameoverscreen;
+    [SerializeField] Image gameOverBG;
+
+    [SerializeField] private Sprite[] bgs;
     //TODO: Add array of sprites for gameover screens
 
     // Start is called before the first frame update
@@ -35,9 +38,11 @@ public class GameManager : MonoBehaviour
             case 1: //win or fail
                 //TODO: set gameoverscreen sprite/image
                 gameoverscreen.SetActive(true);
+                gameOverBG.sprite = bgs[0];
                 break;
             case 2: //neutral
-                //gameoverscreen.setActive(true);
+                gameoverscreen.SetActive(true);
+                gameOverBG.sprite = bgs[1];
                 break;
             default: //error
                 Debug.Log("Invalid game status. Must be 0, 1, 2, or 3.");
