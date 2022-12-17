@@ -1,6 +1,7 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/UX%20UI/TitleSS.uss?fileID=7433441132597879392&amp;guid=bc4d6ff1beb87154ca64ab6eb5d61915&amp;type=3#TitleSS" />
     <ui:VisualElement style="width: 350px;">
-        <ui:VisualElement name="Container" class="button" style="height: 592px; width: 559px; justify-content: center; align-items: auto; flex-direction: column; margin-left: 300px; margin-right: 300px; position: relative; flex-wrap: nowrap; -unity-text-align: upper-center;">
+        <ui:VisualElement name="Container" class="button" style="height: 592px; width: 559px; justify-content: center; align-items: auto; flex-direction: column; margin-left: 300px; margin-right: 300px; position: relative; flex-wrap: nowrap; -unity-text-align: upper-center; top: 0; left: -68px;">
             <ui:Button text="Play" display-tooltip-when-elided="true" name="PlayButton" class="button" />
             <ui:Button text="Settings" display-tooltip-when-elided="true" name="SettingsButton" class="button" />
             <ui:Button text="Quit" display-tooltip-when-elided="true" name="QuitButton" class="button" />
