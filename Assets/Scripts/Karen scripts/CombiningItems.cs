@@ -12,6 +12,7 @@ public class CombiningItems : MonoBehaviour
     //**************************************************
     //resets items (trash items, may need to replace items at their locations)
     //**************************************************
+    //TODO: put items back
     public void reset()
     {
         item1 = "";
