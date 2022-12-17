@@ -11,18 +11,23 @@ public class PlayerMovement : MonoBehaviour
 
     private float speed = 5;
 
-    private Rigidbody2D rb;
-
     public string heldItem = "";
+    private Vector3 heldItemPosition = Vector3.zero;
 
     [SerializeField] CombiningItems combiner;
+    [SerializeField] GameObject blanket;
+    [SerializeField] GameObject candle;
+    [SerializeField] GameObject blowtorch;
+    [SerializeField] GameObject laptop;
+    [SerializeField] GameObject toaster;
+    [SerializeField] GameObject fork;
 
     private GameObject collidedObject = null;
 
     // Start is called before the first frame update
     void Start()
     {
-        rb = gameObject.GetComponent<Rigidbody2D>();
+        
     }
 
     // Update is called once per frame
@@ -39,7 +44,7 @@ public class PlayerMovement : MonoBehaviour
         yMove = movementVector.y;
     }
 
-    private void OnPickUp(/*Collider2D collision*/)
+    private void OnPickUp()
     {
         if (collidedObject == null)
             return;
@@ -51,8 +56,11 @@ public class PlayerMovement : MonoBehaviour
 
             //Set heldItem to Item's name
             heldItem = collision.gameObject.GetComponent<Item>().ItemName;
+            // Save heldItem's location
+            heldItemPosition = collision.gameObject.transform.position;
             //Destroy game object
             Destroy(collision.gameObject);
+            collidedObject = null;
 
             Debug.Log(heldItem);
         }
@@ -68,21 +76,48 @@ public class PlayerMovement : MonoBehaviour
         {
             combiner.reset();
         }
+    }
 
-        if(heldItem != "" && collision.gameObject.CompareTag("TrashCan"))
+    private void OnResetItem()
+    {
+        if (heldItem != "")
         {
+            switch (heldItem)
+            {
+                case "blanket":
+                    Instantiate(blanket, heldItemPosition, Quaternion.identity);
+                    break;
+                case "candle":
+                    Instantiate(candle, heldItemPosition, Quaternion.identity);
+                    break;
+                case "blowtorch":
+                    Instantiate(blowtorch, heldItemPosition, Quaternion.identity);
+                    break;
+                case "laptop":
+                    Instantiate(laptop, heldItemPosition, Quaternion.identity);
+                    break;
+                case "toaster":
+                    Instantiate(toaster, heldItemPosition, Quaternion.identity);
+                    break;
+                case "fork":
+                    Instantiate(fork, heldItemPosition, Quaternion.identity);
+                    break;
+            }
+
             heldItem = "";
-            //TODO: Put item back where it was
+            heldItemPosition = Vector3.zero;
         }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         collidedObject = collision.gameObject;
+        Debug.Log("on trigger enter");
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
         collidedObject = null;
+        Debug.Log("on trigger exit");
     }
 }

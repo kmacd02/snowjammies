@@ -926,6 +926,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   heldItem: 
   combiner: {fileID: 1128878693}
+  blanket: {fileID: 7615802878017485429, guid: d78441f20067f42c2a623b9128b402d7, type: 3}
+  candle: {fileID: 8083219024852797870, guid: 2b6ec765e6beb4e1a96af53d9fe0d65e, type: 3}
+  blowtorch: {fileID: 4155094249273468268, guid: 57191603bea924350884b55bca114f03, type: 3}
+  laptop: {fileID: 743409958611207887, guid: c2fca5731e9c74b2ebcf87db6bd76013, type: 3}
+  toaster: {fileID: 3649404089606045195, guid: ad6b0969d8eaf4509b6b04d624493bc8, type: 3}
+  fork: {fileID: 5880932594052522277, guid: c70b74c15d4914d4cad17886620b131c, type: 3}
 --- !u!114 &1128878693
 MonoBehaviour:
   m_ObjectHideFlags: 0
