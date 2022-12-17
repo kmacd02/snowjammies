@@ -8,6 +8,8 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    [SerializeField] private float fullGameTime = 60f; // 60 seconds for a full game
+
     public int status; //0 = continue, 1 = win/fail, 2 = neutral
     [SerializeField] GameObject gameoverscreen;
     [SerializeField] Image gameOverBG;
@@ -19,6 +21,8 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         status = 0;
+        StartCoroutine(FullGame()); // full game time
+
     }
 
     public void restartGame()
@@ -48,5 +52,12 @@ public class GameManager : MonoBehaviour
                 Debug.Log("Invalid game status. Must be 0, 1, 2, or 3.");
                 break;
         }
+    }
+
+    private IEnumerator FullGame()
+    {
+        yield return new WaitForSeconds(fullGameTime); // full game
+
+        SceneManager.LoadScene("EndScreen");
     }
 }
