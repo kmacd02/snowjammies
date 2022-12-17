@@ -30,8 +30,8 @@ public class CombiningItems : MonoBehaviour
     //**************************************************
     public void addItem(string itemName)
     {
-        List<string> list = new List<string> { "blanket", "candle", "blowtorch", "laptop", "toaster", "fork"};
-        if (!list.Contains(itemName))
+        if ((itemName != "blanket") || (itemName != "candle") || (itemName != "blowtorch") 
+                || (itemName != "laptop") || (itemName != "toaster") || (itemName = "fork"))
         {
             Debug.Log("itemName is not a valid item");
         }
