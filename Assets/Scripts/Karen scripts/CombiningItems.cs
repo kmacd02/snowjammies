@@ -6,7 +6,7 @@ public class CombiningItems : MonoBehaviour
 {
     [SerializeField] private string item1 = "";
     [SerializeField] private string item2 = "";
-
+    [SerializeField] GameManager mover;
 
 
     //**************************************************
@@ -72,22 +72,27 @@ public class CombiningItems : MonoBehaviour
             if (item1 == "candle" || item2 == "candle")
             {
                 Debug.Log("F burn the house down");
+                mover.status = 1;
             }
             else if (item1 == "blowtorch" || item2 == "blowtorch")
             {
                 Debug.Log("F burn the house down");
+                mover.status = 1;
             }
             else if (item1 == "laptop" || item2 == "laptop")
             {
                 Debug.Log("W");
+                mover.status = 1;
             }
             else if (item1 == "toaster" || item2 == "toaster")
             {
                 Debug.Log("N");
+                mover.status = 0;
             }
             else if (item1 == "fork" || item2 == "fork")
             {
                 Debug.Log("N");
+                mover.status = 0;
             }
             else
             {
@@ -98,19 +103,23 @@ public class CombiningItems : MonoBehaviour
         {
             if (item1 == "blowtorch" || item2 == "blowtorch")
             {
-                Debug.Log("raise the chicken from the dead");
+                Debug.Log("F raise the chicken from the dead");
+                mover.status = 1;
             }
             else if (item1 == "laptop" || item2 == "laptop")
             {
                 Debug.Log("W");
+                mover.status = 1;
             }
             else if (item1 == "toaster" || item2 == "toaster")
             {
                 Debug.Log("W");
+                mover.status = 1;
             }
             else if (item1 == "fork" || item2 == "fork")
             {
                 Debug.Log("N");
+                mover.status = 0;
             }
             else
             {
@@ -122,14 +131,17 @@ public class CombiningItems : MonoBehaviour
             if (item1 == "laptop" || item2 == "laptop")
             {
                 Debug.Log("F summons CS bro who tells you heat is bad for laptop performance (rants and you run out of time)");
+                mover.status = 1;
             }
             else if (item1 == "toaster" || item2 == "toaster")
             {
                 Debug.Log("N toaster melts - burnt toast reference?");
+                mover.status = 0;
             }
             else if (item1 == "fork" || item2 == "fork")
             {
                 Debug.Log("W");
+                mover.status = 1;
             }
             else
             {
@@ -141,10 +153,12 @@ public class CombiningItems : MonoBehaviour
             if (item1 == "toaster" || item2 == "toaster")
             {
                 Debug.Log("F Start playing Burnt ToaSt");
+                mover.status = 1;
             }
             else if (item1 == "fork" || item2 == "fork")
             {
                 Debug.Log("N Stab the screen with the fork. Laptop breaks.");
+                mover.status = 0;
             }
             else
             {
@@ -156,6 +170,7 @@ public class CombiningItems : MonoBehaviour
             if (item1 == "fork" || item2 == "fork")
             {
                 Debug.Log("F - Atomic bomb - mushroom cloud gif");
+                mover.status = 1;
             }
             else
             {
