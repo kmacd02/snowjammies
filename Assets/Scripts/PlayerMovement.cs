@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+
 public class PlayerMovement : MonoBehaviour
 {
     private float xMove = 0;
@@ -42,17 +43,17 @@ public class PlayerMovement : MonoBehaviour
             //TODO: Display held item in UI
 
             //Set heldItem to Item's name
-            heldItem = collision.gameObject.name;
+            heldItem = collision.gameObject.GetComponent<Item>().ItemName;
             //Destroy game object
             Destroy(collision.gameObject);
         }
 
         if(heldItem != "" && collision.gameObject.CompareTag("Workspace"))
         {
+            //TODO: Create item game object in workspace — set off some flag!
+
             //Reset heldItem
             heldItem = "";
-            //TODO: Create item game object in workspace
-
         }
     }
 }
