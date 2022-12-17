@@ -57,5 +57,15 @@ public class PlayerMovement : MonoBehaviour
             //Reset heldItem
             heldItem = "";
         }
+        else if (collision.gameObject.CompareTag("Workspace"))
+        {
+            combiner.reset();
+        }
+
+        if(heldItem != "" && collision.gameObject.CompareTag("TrashCan"))
+        {
+            heldItem = "";
+            //TODO: Put item back where it was
+        }
     }
 }
