@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour
 {
     public int status; //0 = continue, 1 = win, 2 = neutral, 3 = fail
 
+    //TODO: Add array of sprites for gameover screens
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,11 +25,9 @@ public class GameManager : MonoBehaviour
         {
             case 0: //continue
                 break;
-            case 1: //win
+            case 1: //win or fail
                 break;
             case 2: //neutral
-                break;
-            case 3: //fail
                 break;
             default: //error
                 Debug.Log("Invalid game status. Must be 0, 1, 2, or 3.");
