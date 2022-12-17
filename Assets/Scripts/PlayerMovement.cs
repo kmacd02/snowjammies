@@ -12,6 +12,9 @@ public class PlayerMovement : MonoBehaviour
 
     private Rigidbody2D rb;
 
+    public string heldItem = "";
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -30,5 +33,26 @@ public class PlayerMovement : MonoBehaviour
 
         xMove = movementVector.x;
         yMove = movementVector.y;
+    }
+
+    private void OnPickUp(Collider2D collision)
+    {
+        if(heldItem == "" && collision.gameObject.CompareTag("Item"))
+        {
+            //TODO: Display held item in UI
+
+            //Set heldItem to Item's name
+            heldItem = collision.gameObject.name;
+            //Destroy game object
+            Destroy(collision.gameObject);
+        }
+
+        if(heldItem != "" && collision.gameObject.CompareTag("Workspace"))
+        {
+            //Reset heldItem
+            heldItem = "";
+            //TODO: Create item game object in workspace
+
+        }
     }
 }
