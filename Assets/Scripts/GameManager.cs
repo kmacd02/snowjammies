@@ -10,7 +10,7 @@ using UnityEngine.InputSystem;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] private float fullGameTime = 60f; // 60 seconds for a full game
+    [SerializeField] private float fullGameTime = 90f; // 60 seconds for a full game
     [SerializeField] private float textShowTime = 4f;
     [SerializeField] SimpleAudioManager audio;
 
@@ -34,7 +34,10 @@ public class GameManager : MonoBehaviour
 
 
     //[SerializeField] private float fadeSpeed = 1.0f;
-    //TODO: Add array of sprites for gameover screens
+
+    //Array of sprites for gameover screens
+    //Numbered based on the numbering in the GDD
+    [SerializeField] private Sprite[] bgs;
 
     // Start is called before the first frame update
     void Start()
@@ -76,12 +79,14 @@ public class GameManager : MonoBehaviour
                 break;
             case 1: //win or fail
                 //TODO: set gameoverscreen sprite/image
+
+                //bgNum =
+
                 //gameoverscreen.SetActive(true);
                 //gameOverBG.sprite = bgs[0];
                 StartCoroutine((showFlavorText()));
                 break;
             case 2: //neutral
-                //gameoverscreen.SetActive(true);
                 //TODO: cut to flavortext (coroutine, also disable player input)
                 StartCoroutine((showFlavorText()));
                 status = 0;
@@ -104,12 +109,16 @@ public class GameManager : MonoBehaviour
     }
     private IEnumerator showFlavorText()
     {
+        //pause mom timer
+        stopTimer = true;
         //disable player movement
         playerInput.enabled = false;
         FlavorTextScreen.SetActive(true);
         flavorTextBG.sprite = flavorTexts[flavorTextNum];
         yield return new WaitForSeconds(textShowTime);
         playerInput.enabled = true;
+        stopTimer = false;
+
         if (status == 1)
         {
             SceneManager.LoadScene("EndGame");
@@ -117,6 +126,6 @@ public class GameManager : MonoBehaviour
         else
         {
             FlavorTextScreen.SetActive(false);
-        }        
+        } 
     }
 }
