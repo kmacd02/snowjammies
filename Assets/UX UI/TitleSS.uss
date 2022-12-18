@@ -1,8 +1,8 @@
 .button {
     font-size: 14px;
     color: rgb(255, 255, 255);
-    width: 150px;
-    height: 50px;
+    width: 159px;
+    height: 51px;
     align-items: stretch;
     justify-content: flex-end;
     border-left-color: rgba(255, 255, 255, 0);
@@ -24,5 +24,6 @@
     border-top-color: rgba(255, 255, 255, 0);
     border-bottom-color: rgba(255, 255, 255, 0);
     background-color: rgb(255, 255, 255);
-    rotate: -10deg;
+    rotate: -3deg;
+    scale: 1.2 1.2;
 }

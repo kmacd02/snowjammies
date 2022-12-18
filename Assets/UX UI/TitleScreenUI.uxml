@@ -1,11 +1,13 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
     <Style src="project://database/Assets/UX%20UI/TitleSS.uss?fileID=7433441132597879392&amp;guid=bc4d6ff1beb87154ca64ab6eb5d61915&amp;type=3#TitleSS" />
-    <ui:VisualElement>
-        <ui:VisualElement name="Container" style="width: auto; align-items: center; justify-content: space-around; height: auto; flex-direction: row; margin-top: 120px; margin-bottom: 100px; padding-top: 300px; margin-left: 100px; margin-right: 100px;">
-            <ui:Button display-tooltip-when-elided="true" name="PlayButton" class="button" style="background-image: url(&apos;project://database/Assets/UX%20UI/Kenzie%20Figma/Main%20Menu%20-%20Vertical.png?fileID=-912632331&amp;guid=ee5fdc0ab7d4da24a87ee3e294bfe0e7&amp;type=3#MM - Play&apos;); border-left-color: rgba(255, 255, 255, 0); border-right-color: rgba(255, 255, 255, 0); border-top-color: rgba(255, 255, 255, 0); border-bottom-color: rgba(255, 255, 255, 0); background-color: rgba(255, 255, 255, 255);" />
-            <ui:Button display-tooltip-when-elided="true" name="OptionsButton" class="button" style="background-image: url(&apos;project://database/Assets/UX%20UI/Kenzie%20Figma/Main%20Menu%20-%20Vertical.png?fileID=-1789641904&amp;guid=ee5fdc0ab7d4da24a87ee3e294bfe0e7&amp;type=3#MM - Options&apos;);" />
-            <ui:Button display-tooltip-when-elided="true" name="HowToButton" class="button" style="background-image: url(&apos;project://database/Assets/UX%20UI/Kenzie%20Figma/Main%20Menu%20-%20Vertical.png?fileID=1179891307&amp;guid=ee5fdc0ab7d4da24a87ee3e294bfe0e7&amp;type=3#MM - How To&apos;);" />
-            <ui:Button display-tooltip-when-elided="true" name="QuitButton" enable-rich-text="false" class="button" style="background-image: url(&apos;project://database/Assets/UX%20UI/Kenzie%20Figma/Main%20Menu%20-%20Vertical.png?fileID=777739607&amp;guid=ee5fdc0ab7d4da24a87ee3e294bfe0e7&amp;type=3#MM - Quit&apos;);" />
+    <ui:VisualElement style="height: 815px;">
+        <ui:VisualElement name="Container" style="width: 704px; align-items: auto; justify-content: space-around; height: 44px; flex-direction: row; margin-top: 0; margin-bottom: 0; padding-top: 0; margin-left: 0; margin-right: 0; left: 704px; position: absolute; top: 781px; flex-grow: 1;">
+            <ui:Button display-tooltip-when-elided="true" name="PlayButton" class="button" style="background-image: url(&apos;project://database/Assets/UX%20UI/Kenzie%20Figma/Play.png?fileID=21300000&amp;guid=d4d3dbb0be8710045ab994e4df8cc8fe&amp;type=3#Play&apos;); border-left-color: rgba(255, 255, 255, 0); border-right-color: rgba(255, 255, 255, 0); border-top-color: rgba(255, 255, 255, 0); border-bottom-color: rgba(255, 255, 255, 0); background-color: rgb(255, 255, 255);" />
+            <ui:Button display-tooltip-when-elided="true" name="OptionsButton" class="button" style="background-image: url(&apos;project://database/Assets/UX%20UI/Kenzie%20Figma/Options.png?fileID=21300000&amp;guid=79291ab322d55c74890d1befa8261bae&amp;type=3#Options&apos;);" />
+            <ui:Button display-tooltip-when-elided="true" name="HowToButton" class="button" style="background-image: url(&apos;project://database/Assets/UX%20UI/Kenzie%20Figma/How%20To.png?fileID=21300000&amp;guid=4fb2a2647a8f1eb479f7df45b294133a&amp;type=3#How To&apos;);" />
+            <ui:Button display-tooltip-when-elided="true" name="QuitButton" enable-rich-text="false" class="button" style="background-image: url(&apos;project://database/Assets/UX%20UI/Kenzie%20Figma/Quit.png?fileID=21300000&amp;guid=3f9b5708c037c394daeb0ebe540c5817&amp;type=3#Quit&apos;);" />
         </ui:VisualElement>
     </ui:VisualElement>
+    <ui:VisualElement name="SettingsPanel" />
+    <ui:IMGUIContainer name="IMGUIContainer" style="position: absolute; left: 53px; top: 66px; width: 475px; max-height: 100%; max-width: 100%;" />
 </ui:UXML>
