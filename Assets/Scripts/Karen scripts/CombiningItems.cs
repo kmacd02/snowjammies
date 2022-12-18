@@ -72,6 +72,7 @@ public class CombiningItems : MonoBehaviour
         {
             if (item1 == "candle" || item2 == "candle")
             {
+<<<<<<< HEAD
                 Debug.Log("N");
                 //GameOverManager.bgNum = 1;
                 mover.flavorTextNum = 0;
@@ -85,28 +86,48 @@ public class CombiningItems : MonoBehaviour
                 mover.flavorTextNum = 1;
                 mover.status = 1;
                 
+=======
+                Debug.Log("F burn the house down");
+                mover.status = 1;
+            }
+            else if (item1 == "blowtorch" || item2 == "blowtorch")
+            {
+                Debug.Log("F burn the house down");
+                mover.status = 1;
+>>>>>>> parent of 6501abe (Merge branch 'main' of https://github.com/kmacd02/snowjammies)
             }
             else if (item1 == "laptop" || item2 == "laptop")
             {
                 Debug.Log("W");
+<<<<<<< HEAD
                 GameOverManager.bgNum = 0;
                 mover.flavorTextNum = 2;
+=======
+>>>>>>> parent of 6501abe (Merge branch 'main' of https://github.com/kmacd02/snowjammies)
                 mover.status = 1;
                 
             }
             else if (item1 == "toaster" || item2 == "toaster")
             {
                 Debug.Log("N");
+<<<<<<< HEAD
                 mover.flavorTextNum = 3;
                 mover.status = 2;
                 
+=======
+                mover.status = 0;
+>>>>>>> parent of 6501abe (Merge branch 'main' of https://github.com/kmacd02/snowjammies)
             }
             else if (item1 == "fork" || item2 == "fork")
             {
                 Debug.Log("N");
+<<<<<<< HEAD
                 mover.flavorTextNum = 4;
                 mover.status = 2;
                 
+=======
+                mover.status = 0;
+>>>>>>> parent of 6501abe (Merge branch 'main' of https://github.com/kmacd02/snowjammies)
             }
             else
             {
@@ -118,33 +139,46 @@ public class CombiningItems : MonoBehaviour
             if (item1 == "blowtorch" || item2 == "blowtorch")
             {
                 Debug.Log("F raise the chicken from the dead");
+<<<<<<< HEAD
                 GameOverManager.bgNum = 2;
                 mover.flavorTextNum = 5;
+=======
+>>>>>>> parent of 6501abe (Merge branch 'main' of https://github.com/kmacd02/snowjammies)
                 mover.status = 1;
                 
             }
             else if (item1 == "laptop" || item2 == "laptop")
             {
                 Debug.Log("W");
+<<<<<<< HEAD
                 GameOverManager.bgNum = 0;
                 mover.flavorTextNum = 6;
+=======
+>>>>>>> parent of 6501abe (Merge branch 'main' of https://github.com/kmacd02/snowjammies)
                 mover.status = 1;
                 
             }
             else if (item1 == "toaster" || item2 == "toaster")
             {
                 Debug.Log("W");
+<<<<<<< HEAD
                 GameOverManager.bgNum = 0;
                 mover.flavorTextNum = 7;
+=======
+>>>>>>> parent of 6501abe (Merge branch 'main' of https://github.com/kmacd02/snowjammies)
                 mover.status = 1;
                 
             }
             else if (item1 == "fork" || item2 == "fork")
             {
                 Debug.Log("N");
+<<<<<<< HEAD
                 mover.flavorTextNum = 8;
                 mover.status = 2;
                 
+=======
+                mover.status = 0;
+>>>>>>> parent of 6501abe (Merge branch 'main' of https://github.com/kmacd02/snowjammies)
             }
             else
             {
@@ -156,21 +190,31 @@ public class CombiningItems : MonoBehaviour
             if (item1 == "laptop" || item2 == "laptop")
             {
                 Debug.Log("F summons CS bro who tells you heat is bad for laptop performance (rants and you run out of time)");
+<<<<<<< HEAD
                 GameOverManager.bgNum = 3;
                 mover.flavorTextNum = 9;
+=======
+>>>>>>> parent of 6501abe (Merge branch 'main' of https://github.com/kmacd02/snowjammies)
                 mover.status = 1;
             }
             else if (item1 == "toaster" || item2 == "toaster")
             {
                 Debug.Log("N toaster melts - burnt toast reference?");
+<<<<<<< HEAD
                 mover.flavorTextNum = 10;
                 mover.status = 2;
+=======
+                mover.status = 0;
+>>>>>>> parent of 6501abe (Merge branch 'main' of https://github.com/kmacd02/snowjammies)
             }
             else if (item1 == "fork" || item2 == "fork")
             {
                 Debug.Log("W");
+<<<<<<< HEAD
                 GameOverManager.bgNum = 6;
                 mover.flavorTextNum = 11;
+=======
+>>>>>>> parent of 6501abe (Merge branch 'main' of https://github.com/kmacd02/snowjammies)
                 mover.status = 1;
             }
             else
@@ -183,15 +227,22 @@ public class CombiningItems : MonoBehaviour
             if (item1 == "toaster" || item2 == "toaster")
             {
                 Debug.Log("F Start playing Burnt ToaSt");
+<<<<<<< HEAD
                 GameOverManager.bgNum = 4;
                 mover.flavorTextNum = 12;
+=======
+>>>>>>> parent of 6501abe (Merge branch 'main' of https://github.com/kmacd02/snowjammies)
                 mover.status = 1;
             }
             else if (item1 == "fork" || item2 == "fork")
             {
                 Debug.Log("N Stab the screen with the fork. Laptop breaks.");
+<<<<<<< HEAD
                 mover.flavorTextNum = 13;
                 mover.status = 2;
+=======
+                mover.status = 0;
+>>>>>>> parent of 6501abe (Merge branch 'main' of https://github.com/kmacd02/snowjammies)
             }
             else
             {
@@ -203,8 +254,11 @@ public class CombiningItems : MonoBehaviour
             if (item1 == "fork" || item2 == "fork")
             {
                 Debug.Log("F - Atomic bomb - mushroom cloud gif");
+<<<<<<< HEAD
                 GameOverManager.bgNum = 5;
                 mover.flavorTextNum = 14;
+=======
+>>>>>>> parent of 6501abe (Merge branch 'main' of https://github.com/kmacd02/snowjammies)
                 mover.status = 1;
             }
             else
