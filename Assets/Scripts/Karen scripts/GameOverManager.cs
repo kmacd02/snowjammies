@@ -11,7 +11,9 @@ public class GameOverManager : MonoBehaviour
 
     public static float BGMVol = 0.5f;
 
-    [SerializeField] private Sprite[] bgs;
+    //[SerializeField] private Sprite[] bgs;
+    //I declared this in GameManager and made it public.
+
     [SerializeField] Image gameOverBG;
     [SerializeField] SimpleAudioManager audio;
 
