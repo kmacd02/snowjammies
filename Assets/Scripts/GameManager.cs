@@ -15,13 +15,15 @@ public class GameManager : MonoBehaviour
 
     public int status; //0 = continue, 1 = win/fail, 2 = neutral
     public int flavorTextNum = 0;
+
+
     [SerializeField] GameObject gameoverscreen;
     [SerializeField] GameObject playerInputObject;
     [SerializeField] GameObject FlavorTextScreen;
 
     private PlayerInput playerInput;
     
-    [SerializeField] Image gameOverBG;
+    [SerializeField] Image flavorTextBG;
 
     [SerializeField] private Sprite[] flavorTexts;
 
@@ -81,16 +83,19 @@ public class GameManager : MonoBehaviour
     }
     private IEnumerator showFlavorText()
     {
-        Debug.Log("hit show flavor text");
         //disable player movement
         playerInput.enabled = false;
         FlavorTextScreen.SetActive(true);
+        flavorTextBG.sprite = flavorTexts[flavorTextNum];
         yield return new WaitForSeconds(textShowTime);
-        FlavorTextScreen.SetActive(false);
         playerInput.enabled = true;
         if (status == 1)
         {
             SceneManager.LoadScene("EndGame");
         }
+        else
+        {
+            FlavorTextScreen.SetActive(false);
+        }        
     }
 }

@@ -14,8 +14,9 @@ public class GameOverManager : MonoBehaviour
     [SerializeField] private Sprite[] bgs;
     [SerializeField] Image gameOverBG;
 
-    void Awake()
+    void Start()
     {
+        Debug.Log(bgNum);
         gameOverBG.sprite = bgs[bgNum];
     }
 

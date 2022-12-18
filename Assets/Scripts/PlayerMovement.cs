@@ -216,13 +216,13 @@ public class PlayerMovement : MonoBehaviour
                 gameObject.transform.GetChild(0).GetChild(1).GetComponent<Image>().sprite = null;
                 gameObject.transform.GetChild(0).GetChild(1).GetComponent<Image>().enabled = false;
             }
-            else if (collision.gameObject.CompareTag("Workspace"))
-            {
-                combiner.reset();
+            // else if (collision.gameObject.CompareTag("Workspace"))
+            // {
+            //     combiner.reset();
 
-                gameObject.transform.GetChild(0).GetChild(1).GetComponent<Image>().sprite = null;
-                gameObject.transform.GetChild(0).GetChild(1).GetComponent<Image>().enabled = false;
-            }
+            //     gameObject.transform.GetChild(0).GetChild(1).GetComponent<Image>().sprite = null;
+            //     gameObject.transform.GetChild(0).GetChild(1).GetComponent<Image>().enabled = false;
+            // }
         }
     }
 
