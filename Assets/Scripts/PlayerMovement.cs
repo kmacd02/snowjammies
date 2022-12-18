@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 
 public class PlayerMovement : MonoBehaviour
@@ -13,8 +14,10 @@ public class PlayerMovement : MonoBehaviour
 
     public string heldItem = "";
     private Vector3 heldItemPosition = Vector3.zero;
+    private string onTriggerEnterItem = "";
 
     [SerializeField] CombiningItems combiner;
+
     [SerializeField] GameObject blanket;
     [SerializeField] GameObject candle;
     [SerializeField] GameObject blowtorch;
@@ -22,12 +25,20 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] GameObject toaster;
     [SerializeField] GameObject fork;
 
+    [SerializeField] Sprite blanketSprite;
+    [SerializeField] Sprite candleSprite;
+    [SerializeField] Sprite blowtorchSprite;
+    [SerializeField] Sprite laptopSprite;
+    [SerializeField] Sprite toasterSprite;
+    [SerializeField] Sprite forkSprite;
+
     private GameObject collidedObject = null;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        gameObject.transform.GetChild(0).GetChild(1).GetComponent<Image>().sprite = null;
+        gameObject.transform.GetChild(0).GetChild(1).GetComponent<Image>().enabled = false;
     }
 
     // Update is called once per frame
@@ -52,12 +63,37 @@ public class PlayerMovement : MonoBehaviour
         BoxCollider2D collision = collidedObject.GetComponent<BoxCollider2D>();
         if(heldItem == "" && collision.gameObject.CompareTag("Item"))
         {
-            //TODO: Display held item in UI
-
             //Set heldItem to Item's name
             heldItem = collision.gameObject.GetComponent<Item>().ItemName;
             // Save heldItem's location
             heldItemPosition = collision.gameObject.transform.position;
+
+            // Display held item in UI
+            Sprite spriteToDisplay = null;
+            switch (heldItem)
+            {
+                case "blanket":
+                    spriteToDisplay = blanketSprite;
+                    break;
+                case "candle":
+                    spriteToDisplay = candleSprite;
+                    break;
+                case "blowtorch":
+                    spriteToDisplay = blowtorchSprite;
+                    break;
+                case "laptop":
+                    spriteToDisplay = laptopSprite;
+                    break;
+                case "toaster":
+                    spriteToDisplay = toasterSprite;
+                    break;
+                case "fork":
+                    spriteToDisplay = forkSprite;
+                    break;
+            }
+            gameObject.transform.GetChild(0).GetChild(1).GetComponent<Image>().enabled = true;
+            gameObject.transform.GetChild(0).GetChild(1).GetComponent<Image>().sprite = spriteToDisplay;
+
             //Destroy game object
             Destroy(collision.gameObject);
             collidedObject = null;
@@ -71,10 +107,17 @@ public class PlayerMovement : MonoBehaviour
             combiner.addItem(heldItem);
             //Reset heldItem
             heldItem = "";
+            heldItemPosition = Vector3.zero;
+            // Remove item from display
+            gameObject.transform.GetChild(0).GetChild(1).GetComponent<Image>().sprite = null;
+            gameObject.transform.GetChild(0).GetChild(1).GetComponent<Image>().enabled = false;
         }
         else if (collision.gameObject.CompareTag("Workspace"))
         {
             combiner.reset();
+
+            gameObject.transform.GetChild(0).GetChild(1).GetComponent<Image>().sprite = null;
+            gameObject.transform.GetChild(0).GetChild(1).GetComponent<Image>().enabled = false;
         }
     }
 
@@ -106,18 +149,37 @@ public class PlayerMovement : MonoBehaviour
 
             heldItem = "";
             heldItemPosition = Vector3.zero;
+
+            gameObject.transform.GetChild(0).GetChild(1).GetComponent<Image>().sprite = null;
+            gameObject.transform.GetChild(0).GetChild(1).GetComponent<Image>().enabled = false;
         }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         collidedObject = collision.gameObject;
+        if (collision.gameObject.GetComponent<Item>() != null)
+            onTriggerEnterItem = collision.gameObject.GetComponent<Item>().ItemName;
+
         Debug.Log("on trigger enter");
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        collidedObject = null;
+        if (collision.gameObject.GetComponent<Item>() != null)
+        {
+            if (onTriggerEnterItem == collision.gameObject.GetComponent<Item>().ItemName)
+            {
+                collidedObject = null;
+                onTriggerEnterItem = "";
+            }
+        }
+        else
+        {
+            collidedObject = null;
+            onTriggerEnterItem = "";
+        }
+
         Debug.Log("on trigger exit");
     }
 }
