@@ -72,28 +72,41 @@ public class CombiningItems : MonoBehaviour
         {
             if (item1 == "candle" || item2 == "candle")
             {
-                Debug.Log("F burn the house down");
-                mover.status = 1;
+                Debug.Log("N");
+                //GameOverManager.bgNum = 1;
+                mover.flavorTextNum = 0;
+                mover.status = 2;
+                
             }
             else if (item1 == "blowtorch" || item2 == "blowtorch")
             {
-                Debug.Log("F burn the house down");
+                Debug.Log("F - burn the house down");
+                GameOverManager.bgNum = 1;
+                mover.flavorTextNum = 1;
                 mover.status = 1;
+                
             }
             else if (item1 == "laptop" || item2 == "laptop")
             {
                 Debug.Log("W");
+                GameOverManager.bgNum = 0;
+                mover.flavorTextNum = 2;
                 mover.status = 1;
+                
             }
             else if (item1 == "toaster" || item2 == "toaster")
             {
                 Debug.Log("N");
-                mover.status = 0;
+                mover.flavorTextNum = 3;
+                mover.status = 2;
+                
             }
             else if (item1 == "fork" || item2 == "fork")
             {
                 Debug.Log("N");
-                mover.status = 0;
+                mover.flavorTextNum = 4;
+                mover.status = 2;
+                
             }
             else
             {
@@ -105,22 +118,33 @@ public class CombiningItems : MonoBehaviour
             if (item1 == "blowtorch" || item2 == "blowtorch")
             {
                 Debug.Log("F raise the chicken from the dead");
+                GameOverManager.bgNum = 2;
+                mover.flavorTextNum = 5;
                 mover.status = 1;
+                
             }
             else if (item1 == "laptop" || item2 == "laptop")
             {
                 Debug.Log("W");
+                GameOverManager.bgNum = 0;
+                mover.flavorTextNum = 6;
                 mover.status = 1;
+                
             }
             else if (item1 == "toaster" || item2 == "toaster")
             {
                 Debug.Log("W");
+                GameOverManager.bgNum = 0;
+                mover.flavorTextNum = 7;
                 mover.status = 1;
+                
             }
             else if (item1 == "fork" || item2 == "fork")
             {
                 Debug.Log("N");
-                mover.status = 0;
+                mover.flavorTextNum = 8;
+                mover.status = 2;
+                
             }
             else
             {
@@ -132,16 +156,21 @@ public class CombiningItems : MonoBehaviour
             if (item1 == "laptop" || item2 == "laptop")
             {
                 Debug.Log("F summons CS bro who tells you heat is bad for laptop performance (rants and you run out of time)");
+                GameOverManager.bgNum = 3;
+                mover.flavorTextNum = 9;
                 mover.status = 1;
             }
             else if (item1 == "toaster" || item2 == "toaster")
             {
                 Debug.Log("N toaster melts - burnt toast reference?");
-                mover.status = 0;
+                mover.flavorTextNum = 10;
+                mover.status = 2;
             }
             else if (item1 == "fork" || item2 == "fork")
             {
                 Debug.Log("W");
+                GameOverManager.bgNum = 6;
+                mover.flavorTextNum = 11;
                 mover.status = 1;
             }
             else
@@ -154,12 +183,15 @@ public class CombiningItems : MonoBehaviour
             if (item1 == "toaster" || item2 == "toaster")
             {
                 Debug.Log("F Start playing Burnt ToaSt");
+                GameOverManager.bgNum = 4;
+                mover.flavorTextNum = 12;
                 mover.status = 1;
             }
             else if (item1 == "fork" || item2 == "fork")
             {
                 Debug.Log("N Stab the screen with the fork. Laptop breaks.");
-                mover.status = 0;
+                mover.flavorTextNum = 13;
+                mover.status = 2;
             }
             else
             {
@@ -171,6 +203,8 @@ public class CombiningItems : MonoBehaviour
             if (item1 == "fork" || item2 == "fork")
             {
                 Debug.Log("F - Atomic bomb - mushroom cloud gif");
+                GameOverManager.bgNum = 5;
+                mover.flavorTextNum = 14;
                 mover.status = 1;
             }
             else

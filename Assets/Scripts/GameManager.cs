@@ -11,8 +11,16 @@ public class GameManager : MonoBehaviour
     [SerializeField] private float fullGameTime = 60f; // 60 seconds for a full game
 
     public int status; //0 = continue, 1 = win/fail, 2 = neutral
+    public int flavorTextNum = 0;
+
+
     [SerializeField] GameObject gameoverscreen;
-    [SerializeField] Image gameOverBG;
+    [SerializeField] GameObject playerInputObject;
+    [SerializeField] GameObject FlavorTextScreen;
+
+    private PlayerInput playerInput;
+    
+    [SerializeField] Image flavorTextBG;
 
     [SerializeField] private Sprite[] bgs;
 
@@ -62,7 +70,21 @@ public class GameManager : MonoBehaviour
 
         //Display gameover screen
         //SceneManager.LoadScene("EndScreen");
-        gameoverscreen.SetActive(true);
-        gameOverBG.sprite = bgs[0];
+        // gameoverscreen.SetActive(true);
+        // gameOverBG.sprite = bgs[0];
+    }
+    private IEnumerator showFlavorText()
+    {
+        //disable player movement
+        playerInput.enabled = false;
+        FlavorTextScreen.SetActive(true);
+        flavorTextBG.sprite = flavorTexts[flavorTextNum];
+        yield return new WaitForSeconds(textShowTime);
+        FlavorTextScreen.SetActive(false);
+        playerInput.enabled = true;
+        if (status == 1)
+        {
+            SceneManager.LoadScene("EndGame");
+        }
     }
 }
