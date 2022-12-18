@@ -17,12 +17,14 @@ public class GameManager : MonoBehaviour
     public int flavorTextNum = 0;
     [SerializeField] GameObject gameoverscreen;
     [SerializeField] GameObject playerInputObject;
+    [SerializeField] GameObject FlavorTextScreen;
 
     private PlayerInput playerInput;
     
     [SerializeField] Image gameOverBG;
 
     [SerializeField] private Sprite[] flavorTexts;
+
 
     //[SerializeField] private float fadeSpeed = 1.0f;
     //TODO: Add array of sprites for gameover screens
@@ -54,10 +56,12 @@ public class GameManager : MonoBehaviour
                 //TODO: set gameoverscreen sprite/image
                 //gameoverscreen.SetActive(true);
                 //gameOverBG.sprite = bgs[0];
+                StartCoroutine((showFlavorText()));
                 break;
             case 2: //neutral
                 //gameoverscreen.SetActive(true);
                 //TODO: cut to flavortext (coroutine, also disable player input)
+                StartCoroutine((showFlavorText()));
                 status = 0;
                 break;
             default: //error
@@ -77,11 +81,16 @@ public class GameManager : MonoBehaviour
     }
     private IEnumerator showFlavorText()
     {
+        Debug.Log("hit show flavor text");
         //disable player movement
         playerInput.enabled = false;
-
+        FlavorTextScreen.SetActive(true);
         yield return new WaitForSeconds(textShowTime);
-
+        FlavorTextScreen.SetActive(false);
         playerInput.enabled = true;
+        if (status == 1)
+        {
+            SceneManager.LoadScene("EndGame");
+        }
     }
 }

@@ -19,7 +19,7 @@ public class GameOverManager : MonoBehaviour
         gameOverBG.sprite = bgs[bgNum];
     }
 
-    public void reset()
+    public void restart()
     {
         SceneManager.LoadScene("AnviTestScene");
     }

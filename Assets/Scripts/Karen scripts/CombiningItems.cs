@@ -72,14 +72,15 @@ public class CombiningItems : MonoBehaviour
         {
             if (item1 == "candle" || item2 == "candle")
             {
-                Debug.Log("F burn the house down");
-                GameOverManager.bgNum = 1;
-                mover.status = 1;
+                Debug.Log("N");
+                //GameOverManager.bgNum = 1;
+                mover.status = 2;
             }
             else if (item1 == "blowtorch" || item2 == "blowtorch")
             {
-                Debug.Log("N");
-                mover.status = 1;
+                Debug.Log("F - burn the house down");
+                GameOverManager.bgNum = 1;
+                mover.status = 2;
             }
             else if (item1 == "laptop" || item2 == "laptop")
             {
@@ -90,12 +91,12 @@ public class CombiningItems : MonoBehaviour
             else if (item1 == "toaster" || item2 == "toaster")
             {
                 Debug.Log("N");
-                mover.status = 0;
+                mover.status = 2;
             }
             else if (item1 == "fork" || item2 == "fork")
             {
                 Debug.Log("N");
-                mover.status = 0;
+                mover.status = 2;
             }
             else
             {
@@ -125,7 +126,7 @@ public class CombiningItems : MonoBehaviour
             else if (item1 == "fork" || item2 == "fork")
             {
                 Debug.Log("N");
-                mover.status = 0;
+                mover.status = 2;
             }
             else
             {
@@ -143,7 +144,7 @@ public class CombiningItems : MonoBehaviour
             else if (item1 == "toaster" || item2 == "toaster")
             {
                 Debug.Log("N toaster melts - burnt toast reference?");
-                mover.status = 0;
+                mover.status = 2;
             }
             else if (item1 == "fork" || item2 == "fork")
             {
@@ -167,7 +168,7 @@ public class CombiningItems : MonoBehaviour
             else if (item1 == "fork" || item2 == "fork")
             {
                 Debug.Log("N Stab the screen with the fork. Laptop breaks.");
-                mover.status = 0;
+                mover.status = 2;
             }
             else
             {
