@@ -58,6 +58,9 @@ public class GameManager : MonoBehaviour
     {
         yield return new WaitForSeconds(fullGameTime); // full game
 
-        SceneManager.LoadScene("EndScreen");
+        //Display gameover screen
+        //SceneManager.LoadScene("EndScreen");
+        gameoverscreen.SetActive(true);
+        gameOverBG.sprite = bgs[0];
     }
 }
