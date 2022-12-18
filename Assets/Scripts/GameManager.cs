@@ -15,6 +15,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] Image gameOverBG;
 
     [SerializeField] private Sprite[] bgs;
+
+    //[SerializeField] private float fadeSpeed = 1.0f;
     //TODO: Add array of sprites for gameover screens
 
     // Start is called before the first frame update
@@ -45,11 +47,11 @@ public class GameManager : MonoBehaviour
                 gameOverBG.sprite = bgs[0];
                 break;
             case 2: //neutral
-                gameoverscreen.SetActive(true);
+                //gameoverscreen.SetActive(true);
                 gameOverBG.sprite = bgs[1];
                 break;
             default: //error
-                Debug.Log("Invalid game status. Must be 0, 1, 2, or 3.");
+                Debug.Log("Invalid game status. Must be 0, 1, or 2.");
                 break;
         }
     }
