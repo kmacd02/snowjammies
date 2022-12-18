@@ -1009,12 +1009,12 @@ MonoBehaviour:
   laptop: {fileID: 743409958611207887, guid: c2fca5731e9c74b2ebcf87db6bd76013, type: 3}
   toaster: {fileID: 3649404089606045195, guid: ad6b0969d8eaf4509b6b04d624493bc8, type: 3}
   fork: {fileID: 5880932594052522277, guid: c70b74c15d4914d4cad17886620b131c, type: 3}
-  blanketSprite: {fileID: 0}
-  candleSprite: {fileID: 0}
-  blowtorchSprite: {fileID: 0}
-  laptopSprite: {fileID: 0}
-  toasterSprite: {fileID: 0}
-  forkSprite: {fileID: 0}
+  blanketSprite: {fileID: 21300000, guid: 1cb5fb702e300466aa12a795ede32cde, type: 3}
+  candleSprite: {fileID: 21300000, guid: 6cfd5ebd4e0ba4f10adb733a2edea556, type: 3}
+  blowtorchSprite: {fileID: 21300000, guid: 122d8960ec0f64f59aa5efa67c5fbeca, type: 3}
+  laptopSprite: {fileID: 21300000, guid: 1bfcb0f2d389a42b2868f31890ce8fcf, type: 3}
+  toasterSprite: {fileID: 21300000, guid: ec65d4e6e60fe4d96a35a50d1bd02632, type: 3}
+  forkSprite: {fileID: 21300000, guid: 35d11c6b741aa4f2b833f7921fad1393, type: 3}
 --- !u!114 &1128878693
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1151,7 +1151,7 @@ RectTransform:
   m_GameObject: {fileID: 1271028598}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.25, y: 0.25, z: 1}
+  m_LocalScale: {x: 0.17, y: 0.17, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1885870123}
@@ -1160,7 +1160,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -226, y: 114.4}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 266.66666, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1271028600
 MonoBehaviour:
@@ -1229,6 +1229,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42a76da7e729140dcb0a4ac3afa9afb7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fullGameTime: 60
   status: 0
   gameoverscreen: {fileID: 524702561}
   gameOverBG: {fileID: 514781316}

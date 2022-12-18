@@ -93,6 +93,7 @@ public class PlayerMovement : MonoBehaviour
             }
             gameObject.transform.GetChild(0).GetChild(1).GetComponent<Image>().enabled = true;
             gameObject.transform.GetChild(0).GetChild(1).GetComponent<Image>().sprite = spriteToDisplay;
+            gameObject.transform.GetChild(0).GetChild(1).GetComponent<Image>().SetNativeSize();
 
             //Destroy game object
             Destroy(collision.gameObject);
