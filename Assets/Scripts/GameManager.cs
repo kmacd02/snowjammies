@@ -5,16 +5,26 @@ using UnityEngine.Events;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
+using UnityEngine.InputSystem;
+
 
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private float fullGameTime = 60f; // 60 seconds for a full game
+    [SerializeField] private float textShowTime = 4f;
 
     public int status; //0 = continue, 1 = win/fail, 2 = neutral
+    public int flavorTextNum = 0;
     [SerializeField] GameObject gameoverscreen;
+    [SerializeField] GameObject playerInputObject;
+    [SerializeField] GameObject FlavorTextScreen;
+
+    private PlayerInput playerInput;
+    
     [SerializeField] Image gameOverBG;
 
-    [SerializeField] private Sprite[] bgs;
+    [SerializeField] private Sprite[] flavorTexts;
+
 
     //[SerializeField] private float fadeSpeed = 1.0f;
     //TODO: Add array of sprites for gameover screens
@@ -22,6 +32,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        playerInput = playerInputObject.GetComponent<PlayerInput>();
         status = 0;
         StartCoroutine(FullGame()); // full game time
 
@@ -43,12 +54,15 @@ public class GameManager : MonoBehaviour
                 break;
             case 1: //win or fail
                 //TODO: set gameoverscreen sprite/image
-                gameoverscreen.SetActive(true);
-                gameOverBG.sprite = bgs[0];
+                //gameoverscreen.SetActive(true);
+                //gameOverBG.sprite = bgs[0];
+                StartCoroutine((showFlavorText()));
                 break;
             case 2: //neutral
                 //gameoverscreen.SetActive(true);
-                gameOverBG.sprite = bgs[1];
+                //TODO: cut to flavortext (coroutine, also disable player input)
+                StartCoroutine((showFlavorText()));
+                status = 0;
                 break;
             default: //error
                 Debug.Log("Invalid game status. Must be 0, 1, or 2.");
@@ -62,7 +76,21 @@ public class GameManager : MonoBehaviour
 
         //Display gameover screen
         //SceneManager.LoadScene("EndScreen");
-        gameoverscreen.SetActive(true);
-        gameOverBG.sprite = bgs[0];
+        // gameoverscreen.SetActive(true);
+        // gameOverBG.sprite = bgs[0];
+    }
+    private IEnumerator showFlavorText()
+    {
+        Debug.Log("hit show flavor text");
+        //disable player movement
+        playerInput.enabled = false;
+        FlavorTextScreen.SetActive(true);
+        yield return new WaitForSeconds(textShowTime);
+        FlavorTextScreen.SetActive(false);
+        playerInput.enabled = true;
+        if (status == 1)
+        {
+            SceneManager.LoadScene("EndGame");
+        }
     }
 }
