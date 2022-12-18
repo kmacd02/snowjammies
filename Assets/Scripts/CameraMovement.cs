@@ -10,20 +10,28 @@ public class CameraMovement : MonoBehaviour
 
     private float speed = 5;
 
+    private bool infoOpen = false;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        this.infoOpen = gameObject.transform.parent.GetChild(1).GetComponent<PlayerMovement>().infoOpen;
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        transform.position += (new Vector3(xMove, yMove, 0)) * Time.deltaTime * speed;
+        this.infoOpen = gameObject.transform.parent.GetChild(1).GetComponent<PlayerMovement>().infoOpen;
+
+        if (!infoOpen)
+            transform.position += (new Vector3(xMove, yMove, 0)) * Time.deltaTime * speed;
     }
 
     private void OnMove(InputValue movementValue)
     {
+        if (infoOpen)
+            return;
+
         Vector2 movementVector = movementValue.Get<Vector2>();
 
         xMove = movementVector.x;
