@@ -5,13 +5,15 @@ using UnityEngine.Events;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
+using UnityEngine.InputSystem;
+
 
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private float fullGameTime = 60f; // 60 seconds for a full game
+    [SerializeField] private float textShowTime = 4f;
 
     public int status; //0 = continue, 1 = win/fail, 2 = neutral
-<<<<<<< HEAD
     public int flavorTextNum = 0;
 
 
@@ -22,12 +24,9 @@ public class GameManager : MonoBehaviour
     private PlayerInput playerInput;
     
     [SerializeField] Image flavorTextBG;
-=======
-    [SerializeField] GameObject gameoverscreen;
-    [SerializeField] Image gameOverBG;
->>>>>>> parent of 6501abe (Merge branch 'main' of https://github.com/kmacd02/snowjammies)
 
-    [SerializeField] private Sprite[] bgs;
+    [SerializeField] private Sprite[] flavorTexts;
+
 
     //[SerializeField] private float fadeSpeed = 1.0f;
     //TODO: Add array of sprites for gameover screens
@@ -35,6 +34,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        playerInput = playerInputObject.GetComponent<PlayerInput>();
         status = 0;
         StartCoroutine(FullGame()); // full game time
 
@@ -56,12 +56,15 @@ public class GameManager : MonoBehaviour
                 break;
             case 1: //win or fail
                 //TODO: set gameoverscreen sprite/image
-                gameoverscreen.SetActive(true);
-                gameOverBG.sprite = bgs[0];
+                //gameoverscreen.SetActive(true);
+                //gameOverBG.sprite = bgs[0];
+                StartCoroutine((showFlavorText()));
                 break;
             case 2: //neutral
                 //gameoverscreen.SetActive(true);
-                gameOverBG.sprite = bgs[1];
+                //TODO: cut to flavortext (coroutine, also disable player input)
+                StartCoroutine((showFlavorText()));
+                status = 0;
                 break;
             default: //error
                 Debug.Log("Invalid game status. Must be 0, 1, or 2.");
@@ -75,7 +78,6 @@ public class GameManager : MonoBehaviour
 
         //Display gameover screen
         //SceneManager.LoadScene("EndScreen");
-<<<<<<< HEAD
         // gameoverscreen.SetActive(true);
         // gameOverBG.sprite = bgs[0];
     }
@@ -92,9 +94,5 @@ public class GameManager : MonoBehaviour
         {
             SceneManager.LoadScene("EndGame");
         }
-=======
-        gameoverscreen.SetActive(true);
-        gameOverBG.sprite = bgs[0];
->>>>>>> parent of 6501abe (Merge branch 'main' of https://github.com/kmacd02/snowjammies)
     }
 }
