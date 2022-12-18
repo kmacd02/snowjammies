@@ -1,0 +1,8 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UX%20UI/TitleSS.uss?fileID=7433441132597879392&amp;guid=bc4d6ff1beb87154ca64ab6eb5d61915&amp;type=3#TitleSS" />
+    <ui:VisualElement name="HowToScreen" style="height: 2068px; align-items: center; justify-content: flex-start; left: -960px; top: 40px; background-color: rgba(70, 70, 70, 0.82); width: 3361px; padding-top: 69px;">
+        <ui:VisualElement name="HowToWrapper" style="top: -15px; width: 796px; height: 929px; justify-content: space-around; align-items: center; background-color: rgba(180, 180, 180, 0); left: -641px; background-image: url(&apos;project://database/Assets/UX%20UI/Kenzie%20Figma/How%20To%20Play.png?fileID=2800000&amp;guid=ce6dd4f175f914740863887c363b5c3b&amp;type=3#How To Play&apos;); -unity-background-scale-mode: scale-to-fit; position: relative;">
+            <ui:Button display-tooltip-when-elided="true" name="BackButton" class="button" style="background-image: url(&apos;project://database/Assets/UX%20UI/Kenzie%20Figma/Back.png?fileID=2800000&amp;guid=8209bcf1667559c42afe8181a6c642e4&amp;type=3#Back&apos;); width: 140px; height: 43px; top: 476px; -unity-background-scale-mode: scale-and-crop;" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

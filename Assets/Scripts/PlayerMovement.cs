@@ -16,6 +16,8 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 heldItemPosition = Vector3.zero;
     private string onTriggerEnterItem = "";
     public bool infoOpen = false;
+    private bool forward = true;
+    private bool right = true;
 
     [SerializeField] CombiningItems combiner;
 
@@ -40,6 +42,15 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] Sprite toasterInfo;
     [SerializeField] Sprite forkInfo;
 
+    [SerializeField] Sprite forwardLeft;
+    [SerializeField] Sprite forwardRight;
+    [SerializeField] Sprite backLeft;
+    [SerializeField] Sprite backRight;
+    [SerializeField] Sprite forwardLeftWalk;
+    [SerializeField] Sprite forwardRightWalk;
+    [SerializeField] Sprite backLeftWalk;
+    [SerializeField] Sprite backRightWalk;
+
     private GameObject collidedObject = null;
 
     // Start is called before the first frame update
@@ -57,7 +68,60 @@ public class PlayerMovement : MonoBehaviour
     void FixedUpdate()
     {
         if (!infoOpen)
+        {
+            if (xMove == 0 && yMove == 0)
+            {
+                if (right)
+                {
+                    if (forward)
+                    {
+                        gameObject.GetComponent<SpriteRenderer>().sprite = forwardRight;
+                    }
+                    else
+                    {
+                        gameObject.GetComponent<SpriteRenderer>().sprite = backRight;
+                    }
+                }
+                else
+                {
+                    if (forward)
+                    {
+                        gameObject.GetComponent<SpriteRenderer>().sprite = forwardLeft;
+                    }
+                    else
+                    {
+                        gameObject.GetComponent<SpriteRenderer>().sprite = backLeft;
+                    }
+                }
+            }
+            else
+            {
+                if (right)
+                {
+                    if (forward)
+                    {
+                        gameObject.GetComponent<SpriteRenderer>().sprite = forwardRightWalk;
+                    }
+                    else
+                    {
+                        gameObject.GetComponent<SpriteRenderer>().sprite = backRightWalk;
+                    }
+                }
+                else
+                {
+                    if (forward)
+                    {
+                        gameObject.GetComponent<SpriteRenderer>().sprite = forwardLeftWalk;
+                    }
+                    else
+                    {
+                        gameObject.GetComponent<SpriteRenderer>().sprite = backLeftWalk;
+                    }
+                }
+            }
+
             transform.position += (new Vector3(xMove, yMove, 0)) * Time.deltaTime * speed;
+        }
     }
 
     private void OnMove(InputValue movementValue)
@@ -68,6 +132,24 @@ public class PlayerMovement : MonoBehaviour
 
             xMove = movementVector.x;
             yMove = movementVector.y;
+
+            if (xMove > 0)
+            {
+                right = true;
+            }
+            else if (xMove < 0)
+            {
+                right = false;
+            }
+
+            if (yMove < 0)
+            {
+                forward = true;
+            }
+            else if (yMove > 0)
+            {
+                forward = false;
+            }
         }
     }
 

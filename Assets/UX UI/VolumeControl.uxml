@@ -1,0 +1,5 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:VisualElement style="height: 1076px; max-height: 100%; -unity-background-image-tint-color: rgba(94, 94, 94, 0.69); background-color: rgba(101, 101, 101, 0.82);">
+        <ui:VisualElement name="VolumePanel" style="width: 40%; height: 75%; position: relative; left: 35%; top: 10%; background-color: rgba(79, 79, 79, 255);" />
+    </ui:VisualElement>
+</ui:UXML>

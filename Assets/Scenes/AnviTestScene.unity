@@ -1109,7 +1109,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 28f1e653bdfef4a0fbdfb32fe0a290e2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1174,6 +1174,14 @@ MonoBehaviour:
   laptopInfo: {fileID: 21300000, guid: 9916787201c994352bfe5a804910a342, type: 3}
   toasterInfo: {fileID: 21300000, guid: 62ba31c250810495e88b57bef762c8a2, type: 3}
   forkInfo: {fileID: 21300000, guid: d71b70b2406624d80a30709ae1737263, type: 3}
+  forwardLeft: {fileID: 21300000, guid: 746026837f4d7443ea2ad61a93ad872d, type: 3}
+  forwardRight: {fileID: 21300000, guid: 28f1e653bdfef4a0fbdfb32fe0a290e2, type: 3}
+  backLeft: {fileID: 21300000, guid: 0934c843015d548f4a7f5eb2f5b664e9, type: 3}
+  backRight: {fileID: 21300000, guid: e6e14f94b7147497f903b41e4b57927e, type: 3}
+  forwardLeftWalk: {fileID: 21300000, guid: 61d079290c35c43fa873f5eeffd3aa66, type: 3}
+  forwardRightWalk: {fileID: 21300000, guid: 6b5a9a91c296b4a3187d0b7ef8f15a27, type: 3}
+  backLeftWalk: {fileID: 21300000, guid: 33ac44ae0171e432f9cad979be662afb, type: 3}
+  backRightWalk: {fileID: 21300000, guid: a610378840bf64cbdbd1ce84a226209e, type: 3}
 --- !u!114 &1128878693
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1202,18 +1210,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.010473043, y: -0.523651}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 1.6685715, y: 3.12}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1.6493273, y: 1.8797338}
   m_EdgeRadius: 0
 --- !u!1 &1239026204
 GameObject:

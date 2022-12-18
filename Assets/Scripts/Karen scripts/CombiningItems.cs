@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class CombiningItems : MonoBehaviour
 {
-    [SerializeField] private string item1 = "";
-    [SerializeField] private string item2 = "";
+    public string item1 = "";
+    public string item2 = "";
     [SerializeField] GameManager mover;
 
 
