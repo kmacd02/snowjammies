@@ -4,12 +4,14 @@ using UnityEngine;
 using UnityEngine.UIElements;
 using UnityEngine.SceneManagement;
 
+
 public class UserInterfaceScript : MonoBehaviour
 {
     public Button PlayButton;
     public Button SettingsButton;
     public Button QuitButton;
     public Button MenuButton;
+    public Button HowToButton;
 
     void Start()
     {
@@ -19,18 +21,31 @@ public class UserInterfaceScript : MonoBehaviour
         SettingsButton = root.Q<Button>("SettingsButton");
         QuitButton = root.Q<Button>("QuitButton");
         MenuButton = root.Q<Button>("MenuButton");
+        HowToButton = root.Q<Button>("HowToButton");
 
         PlayButton.clicked += PlayButtonPressed;
-        SettingsButton.clicked += SettingsButtonPressed;
+        //SettingsButton.clicked += SettingsButtonPressed;
+        //HowToButton.clicked += HowToButtonPressed;
+        QuitButton.clicked += ExitGame;
     }
 
     void PlayButtonPressed()
     {
-        SceneManager.LoadScene("main");
+        SceneManager.LoadScene("Main");
     }
 
-    void SettingsButtonPressed()
-    {
+    //void SettingsButtonPressed()
+    //{
+        
+    //}
 
+    //void HowToButtonPressed()
+    //{
+
+    //}
+    
+    void ExitGame()
+    {
+        Application.Quit();
     }
 }
