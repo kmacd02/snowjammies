@@ -102,7 +102,7 @@ public class UserInterfaceScript : MonoBehaviour
 
     void PlayGame()
     {
-        SceneManager.LoadScene("Main");
+        SceneManager.LoadScene("AnviTestScene");
     }
 
     void DisplayTutorial()

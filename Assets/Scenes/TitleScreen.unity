@@ -849,6 +849,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HowToMenu: {fileID: 9197481963319205126, guid: ebb6c3ac95822d64591af28564c9cf3a, type: 3}
   VolumeMenu: {fileID: 9197481963319205126, guid: 0dfad078816c5054ca5b16ab3c426371, type: 3}
+  mVol: 0
+  bVol: 0
+  sVol: 0
 --- !u!114 &2112278799
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -865,6 +868,7 @@ MonoBehaviour:
   SFX: []
   BGM_Source: {fileID: 764456726}
   SFX_Source: {fileID: 1703977135}
+  uiHell: {fileID: 2112278798}
   masterMixer: {fileID: 24100000, guid: 552574c2df058f74896e3a6a7128a345, type: 2}
   bgmMixer: {fileID: -2489862529034235851, guid: 552574c2df058f74896e3a6a7128a345, type: 2}
   sfxMixer: {fileID: 6493283487874436298, guid: 552574c2df058f74896e3a6a7128a345, type: 2}

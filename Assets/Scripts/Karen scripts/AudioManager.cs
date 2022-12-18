@@ -56,8 +56,8 @@ public class AudioManager : MonoBehaviour
         //MasterVol.onValueChanged.AddListener(delegate { ValueChangeCheckMaster(); });
         //BGMVol.onValueChanged.AddListener(delegate { ValueChangeCheckBGM(); });
         //SFXVol.onValueChanged.AddListener(delegate { ValueChangeCheckSFX(); });
-        UnityEngine.Debug.Log(uiHell.bVol);
-        UnityEngine.Debug.Log(BGM_Volume);
+        //UnityEngine.Debug.Log(uiHell.bVol);
+        //UnityEngine.Debug.Log(BGM_Volume);
 
     }
 
@@ -68,7 +68,7 @@ public class AudioManager : MonoBehaviour
         {
             ValueChangeCheckBGM();
             BGM_Volume = uiHell.bVol;
-            UnityEngine.Debug.Log("Change");
+            //UnityEngine.Debug.Log("Change");
         }
         if (SFX_Volume != uiHell.sVol)
         {
