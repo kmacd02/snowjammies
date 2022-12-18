@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField] private float fullGameTime = 60f; // 60 seconds for a full game
     [SerializeField] private float textShowTime = 4f;
+    [SerializeField] SimpleAudioManager audio;
 
     public int status; //0 = continue, 1 = win/fail, 2 = neutral
     public int flavorTextNum = 0;
@@ -37,6 +38,7 @@ public class GameManager : MonoBehaviour
         playerInput = playerInputObject.GetComponent<PlayerInput>();
         status = 0;
         StartCoroutine(FullGame()); // full game time
+        audio.PlayBGMWithoutLoop(0);
 
     }
 

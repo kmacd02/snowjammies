@@ -23,9 +23,9 @@ public class AudioManager : MonoBehaviour
     private VisualTreeAsset VolumeMenu;
     private VisualElement VolumeStuff;
 
-    private static float BGM_Volume;// = 0.5f;// to change background music volume
-    private static float SFX_Volume;// = 0.5f;
-    private static float master_volume;// = 1.0f;
+    public static float BGM_Volume;// = 0.5f;// to change background music volume
+    public static float SFX_Volume;// = 0.5f;
+    public static float master_volume;// = 1.0f;
 
     //Slider MasterVol;
     //Slider BGMVol;

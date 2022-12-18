@@ -13,11 +13,20 @@ public class GameOverManager : MonoBehaviour
 
     [SerializeField] private Sprite[] bgs;
     [SerializeField] Image gameOverBG;
+    [SerializeField] SimpleAudioManager audio;
 
     void Start()
     {
         Debug.Log(bgNum);
         gameOverBG.sprite = bgs[bgNum];
+        if (bgNum == 0 || bgNum == 6)
+        {
+            audio.PlayBGMWithLoop(1);
+        }
+        else
+        {
+            audio.PlayBGMWithLoop(2);
+        }
     }
 
     public void restart()
