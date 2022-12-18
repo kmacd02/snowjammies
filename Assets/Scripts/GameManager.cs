@@ -37,7 +37,7 @@ public class GameManager : MonoBehaviour
 
     //Array of sprites for gameover screens
     //Numbered based on the numbering in the GDD
-    [SerializeField] private Sprite[] bgs;
+    //[SerializeField] private Sprite[] bgs;
 
     // Start is called before the first frame update
     void Start()
@@ -102,6 +102,8 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(fullGameTime); // full game
         Debug.Log("fullGameTime: complete");
 
+        GameOverManager.bgNum = 7;
+        SceneManager.LoadScene("EndGame");
         //Display gameover screen
         //SceneManager.LoadScene("EndScreen");
         // gameoverscreen.SetActive(true);
