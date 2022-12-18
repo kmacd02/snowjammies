@@ -15,6 +15,7 @@ public class PlayerMovement : MonoBehaviour
     public string heldItem = "";
     private Vector3 heldItemPosition = Vector3.zero;
     private string onTriggerEnterItem = "";
+    public bool infoOpen = false;
 
     [SerializeField] CombiningItems combiner;
 
@@ -32,6 +33,13 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] Sprite toasterSprite;
     [SerializeField] Sprite forkSprite;
 
+    [SerializeField] Sprite blanketInfo;
+    [SerializeField] Sprite candleInfo;
+    [SerializeField] Sprite blowtorchInfo;
+    [SerializeField] Sprite laptopInfo;
+    [SerializeField] Sprite toasterInfo;
+    [SerializeField] Sprite forkInfo;
+
     private GameObject collidedObject = null;
 
     // Start is called before the first frame update
@@ -39,120 +47,177 @@ public class PlayerMovement : MonoBehaviour
     {
         gameObject.transform.GetChild(0).GetChild(1).GetComponent<Image>().sprite = null;
         gameObject.transform.GetChild(0).GetChild(1).GetComponent<Image>().enabled = false;
+
+        gameObject.transform.GetChild(0).GetChild(3).GetComponent<Image>().sprite = null;
+        gameObject.transform.GetChild(0).GetChild(3).GetComponent<Image>().enabled = false;
+        gameObject.transform.GetChild(0).GetChild(2).GetComponent<Image>().enabled = false;
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        transform.position += (new Vector3(xMove, yMove, 0)) * Time.deltaTime * speed;
+        if (!infoOpen)
+            transform.position += (new Vector3(xMove, yMove, 0)) * Time.deltaTime * speed;
     }
 
     private void OnMove(InputValue movementValue)
     {
-        Vector2 movementVector = movementValue.Get<Vector2>();
+        if (!infoOpen)
+        {
+            Vector2 movementVector = movementValue.Get<Vector2>();
 
-        xMove = movementVector.x;
-        yMove = movementVector.y;
+            xMove = movementVector.x;
+            yMove = movementVector.y;
+        }
     }
 
     private void OnPickUp()
     {
-        if (collidedObject == null)
-            return;
-
-        BoxCollider2D collision = collidedObject.GetComponent<BoxCollider2D>();
-        if(heldItem == "" && collision.gameObject.CompareTag("Item"))
+        if (!infoOpen)
         {
-            //Set heldItem to Item's name
-            heldItem = collision.gameObject.GetComponent<Item>().ItemName;
-            // Save heldItem's location
-            heldItemPosition = collision.gameObject.transform.position;
+            if (collidedObject == null)
+                return;
 
-            // Display held item in UI
-            Sprite spriteToDisplay = null;
-            switch (heldItem)
+            BoxCollider2D collision = collidedObject.GetComponent<BoxCollider2D>();
+            if (heldItem == "" && collision.gameObject.CompareTag("Item"))
             {
-                case "blanket":
-                    spriteToDisplay = blanketSprite;
-                    break;
-                case "candle":
-                    spriteToDisplay = candleSprite;
-                    break;
-                case "blowtorch":
-                    spriteToDisplay = blowtorchSprite;
-                    break;
-                case "laptop":
-                    spriteToDisplay = laptopSprite;
-                    break;
-                case "toaster":
-                    spriteToDisplay = toasterSprite;
-                    break;
-                case "fork":
-                    spriteToDisplay = forkSprite;
-                    break;
+                //Set heldItem to Item's name
+                heldItem = collision.gameObject.GetComponent<Item>().ItemName;
+                // Save heldItem's location
+                heldItemPosition = collision.gameObject.transform.position;
+
+                // Display held item in UI
+                Sprite spriteToDisplay = null;
+                switch (heldItem)
+                {
+                    case "blanket":
+                        spriteToDisplay = blanketSprite;
+                        break;
+                    case "candle":
+                        spriteToDisplay = candleSprite;
+                        break;
+                    case "blowtorch":
+                        spriteToDisplay = blowtorchSprite;
+                        break;
+                    case "laptop":
+                        spriteToDisplay = laptopSprite;
+                        break;
+                    case "toaster":
+                        spriteToDisplay = toasterSprite;
+                        break;
+                    case "fork":
+                        spriteToDisplay = forkSprite;
+                        break;
+                }
+                gameObject.transform.GetChild(0).GetChild(1).GetComponent<Image>().enabled = true;
+                gameObject.transform.GetChild(0).GetChild(1).GetComponent<Image>().sprite = spriteToDisplay;
+                gameObject.transform.GetChild(0).GetChild(1).GetComponent<Image>().SetNativeSize();
+
+                //Destroy game object
+                Destroy(collision.gameObject);
+                collidedObject = null;
+
+                Debug.Log(heldItem);
             }
-            gameObject.transform.GetChild(0).GetChild(1).GetComponent<Image>().enabled = true;
-            gameObject.transform.GetChild(0).GetChild(1).GetComponent<Image>().sprite = spriteToDisplay;
-            gameObject.transform.GetChild(0).GetChild(1).GetComponent<Image>().SetNativeSize();
 
-            //Destroy game object
-            Destroy(collision.gameObject);
-            collidedObject = null;
+            if (heldItem != "" && collision.gameObject.CompareTag("Workspace"))
+            {
+                // Create item game object in workspace — set off some flag!
+                combiner.addItem(heldItem);
+                //Reset heldItem
+                heldItem = "";
+                heldItemPosition = Vector3.zero;
+                // Remove item from display
+                gameObject.transform.GetChild(0).GetChild(1).GetComponent<Image>().sprite = null;
+                gameObject.transform.GetChild(0).GetChild(1).GetComponent<Image>().enabled = false;
+            }
+            else if (collision.gameObject.CompareTag("Workspace"))
+            {
+                combiner.reset();
 
-            Debug.Log(heldItem);
-        }
-
-        if(heldItem != "" && collision.gameObject.CompareTag("Workspace"))
-        {
-            //TODO: Create item game object in workspace — set off some flag!
-            combiner.addItem(heldItem);
-            //Reset heldItem
-            heldItem = "";
-            heldItemPosition = Vector3.zero;
-            // Remove item from display
-            gameObject.transform.GetChild(0).GetChild(1).GetComponent<Image>().sprite = null;
-            gameObject.transform.GetChild(0).GetChild(1).GetComponent<Image>().enabled = false;
-        }
-        else if (collision.gameObject.CompareTag("Workspace"))
-        {
-            combiner.reset();
-
-            gameObject.transform.GetChild(0).GetChild(1).GetComponent<Image>().sprite = null;
-            gameObject.transform.GetChild(0).GetChild(1).GetComponent<Image>().enabled = false;
+                gameObject.transform.GetChild(0).GetChild(1).GetComponent<Image>().sprite = null;
+                gameObject.transform.GetChild(0).GetChild(1).GetComponent<Image>().enabled = false;
+            }
         }
     }
 
     private void OnResetItem()
     {
-        if (heldItem != "")
+        if (!infoOpen)
         {
+            if (heldItem != "")
+            {
+                switch (heldItem)
+                {
+                    case "blanket":
+                        Instantiate(blanket, heldItemPosition, Quaternion.identity);
+                        break;
+                    case "candle":
+                        Instantiate(candle, heldItemPosition, Quaternion.identity);
+                        break;
+                    case "blowtorch":
+                        Instantiate(blowtorch, heldItemPosition, Quaternion.identity);
+                        break;
+                    case "laptop":
+                        Instantiate(laptop, heldItemPosition, Quaternion.identity);
+                        break;
+                    case "toaster":
+                        Instantiate(toaster, heldItemPosition, Quaternion.identity);
+                        break;
+                    case "fork":
+                        Instantiate(fork, heldItemPosition, Quaternion.identity);
+                        break;
+                }
+
+                heldItem = "";
+                heldItemPosition = Vector3.zero;
+
+                gameObject.transform.GetChild(0).GetChild(1).GetComponent<Image>().sprite = null;
+                gameObject.transform.GetChild(0).GetChild(1).GetComponent<Image>().enabled = false;
+            }
+        }
+    }
+
+    private void OnInfo()
+    {
+        if (heldItem != "" && !infoOpen)
+        {
+            infoOpen = true;
+
+            Sprite spriteToDisplay = null;
             switch (heldItem)
             {
                 case "blanket":
-                    Instantiate(blanket, heldItemPosition, Quaternion.identity);
+                    spriteToDisplay = blanketInfo;
                     break;
                 case "candle":
-                    Instantiate(candle, heldItemPosition, Quaternion.identity);
+                    spriteToDisplay = candleInfo;
                     break;
                 case "blowtorch":
-                    Instantiate(blowtorch, heldItemPosition, Quaternion.identity);
+                    spriteToDisplay = blowtorchInfo;
                     break;
                 case "laptop":
-                    Instantiate(laptop, heldItemPosition, Quaternion.identity);
+                    spriteToDisplay = laptopInfo;
                     break;
                 case "toaster":
-                    Instantiate(toaster, heldItemPosition, Quaternion.identity);
+                    spriteToDisplay = toasterInfo;
                     break;
                 case "fork":
-                    Instantiate(fork, heldItemPosition, Quaternion.identity);
+                    spriteToDisplay = forkInfo;
                     break;
             }
 
-            heldItem = "";
-            heldItemPosition = Vector3.zero;
+            gameObject.transform.GetChild(0).GetChild(3).GetComponent<Image>().enabled = true;
+            gameObject.transform.GetChild(0).GetChild(3).GetComponent<Image>().sprite = spriteToDisplay;
+            gameObject.transform.GetChild(0).GetChild(2).GetComponent<Image>().enabled = true;
+        }
+        else if (infoOpen)
+        {
+            infoOpen = false;
 
-            gameObject.transform.GetChild(0).GetChild(1).GetComponent<Image>().sprite = null;
-            gameObject.transform.GetChild(0).GetChild(1).GetComponent<Image>().enabled = false;
+            gameObject.transform.GetChild(0).GetChild(3).GetComponent<Image>().sprite = null;
+            gameObject.transform.GetChild(0).GetChild(3).GetComponent<Image>().enabled = false;
+            gameObject.transform.GetChild(0).GetChild(2).GetComponent<Image>().enabled = false;
         }
     }
 
