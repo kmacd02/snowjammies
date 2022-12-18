@@ -29,10 +29,18 @@ public class UserInterfaceScript : MonoBehaviour
     public Button MenuButton;
     public Button HowToButton;
 
-    float test2;
     public Slider MasterVol;
     public Slider BGMVol;
     public Slider SFXVol;
+
+    public float mVol;
+    public float bVol;
+    public float sVol;
+
+    //public float mVolOld;
+    //public float bVolOld;
+    //public float sVolOld;
+
 
     // Initializing VisualElements in .uxml files
     private VisualElement Container;
@@ -62,9 +70,9 @@ public class UserInterfaceScript : MonoBehaviour
         var BackVolume = VolumeStuff.Q<Button>("BackVolume");
 
         //VolumeStuff = VolumeMenu.CloneTree();
-        //MasterVol = VolumeStuff.Q<Slider>("MasterVolSlider");
-        //BGMVol = VolumeStuff.Q<Slider>("BGMSlider");
-        //SFXVol = VolumeStuff.Q<Slider>("SFXSlider");
+        MasterVol = VolumeStuff.Q<Slider>("MasterCtrl");
+        BGMVol = VolumeStuff.Q<Slider>("BGMCtrl");
+        SFXVol = VolumeStuff.Q<Slider>("SFXCtrl");
 
         PlayButton.clicked += PlayGame;
         OptionsButton.clicked += VolumeSettings;
@@ -73,8 +81,23 @@ public class UserInterfaceScript : MonoBehaviour
         HowToButton.clicked += DisplayTutorial;
         BackVolume.clicked += BackButtonClicked;
 
-        //test2 = MasterVol.value;
+        mVol = MasterVol.value;
+        bVol = BGMVol.value;
+        sVol = SFXVol.value;
 
+        //mVolOld = mVol;
+        //bVolOld = bVol;
+        //sVolOld = sVol;
+        //UnityEngine.Debug.Log(mVol);
+        //UnityEngine.Debug.Log(bVol);
+        //UnityEngine.Debug.Log(sVol);
+
+    }
+    void Update()
+    {
+        mVol = MasterVol.value;
+        bVol = BGMVol.value;
+        sVol = SFXVol.value;
     }
 
     void PlayGame()
