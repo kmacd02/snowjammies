@@ -63,7 +63,7 @@ public class AudioManager : MonoBehaviour
 
     void Update()
     {
-        UnityEngine.Debug.Log(uiHell.bVol);
+        // UnityEngine.Debug.Log(uiHell.bVol);
         if (BGM_Volume != uiHell.bVol)
         {
             ValueChangeCheckBGM();

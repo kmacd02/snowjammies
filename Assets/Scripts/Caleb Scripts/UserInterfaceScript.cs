@@ -21,6 +21,9 @@ public class UserInterfaceScript : MonoBehaviour
     private VisualTreeAsset VolumeMenu;
     private VisualElement VolumeStuff;
 
+    [SerializeField] AudioSource BGM_Source;
+    [SerializeField] AudioSource SFX_Source;
+
     // Initializing Main Menu Buttons
     private UIDocument doc;
     public Button PlayButton;
@@ -102,17 +105,20 @@ public class UserInterfaceScript : MonoBehaviour
 
     void PlayGame()
     {
+        SFX_Source.Play();
         SceneManager.LoadScene("AnviTestScene");
     }
 
     void DisplayTutorial()
     {
+        SFX_Source.Play();
         Container.Clear();
         Container.Add(Tutorial);
     }
 
     void BackButtonClicked()
     {
+        SFX_Source.Play();
         Container.Clear();
         Container.Add(PlayButton);
         Container.Add(OptionsButton);
@@ -122,6 +128,7 @@ public class UserInterfaceScript : MonoBehaviour
 
     void VolumeSettings()
     {
+        SFX_Source.Play();
         Container.Clear();
         Container.Add(VolumeStuff);
 
@@ -129,6 +136,7 @@ public class UserInterfaceScript : MonoBehaviour
 
     void ExitGame()
     {
+        SFX_Source.Play();
         Application.Quit();
         UnityEngine.Debug.Log("Quit.");
     }
