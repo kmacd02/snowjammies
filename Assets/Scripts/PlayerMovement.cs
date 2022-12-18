@@ -48,7 +48,8 @@ public class PlayerMovement : MonoBehaviour
         gameObject.transform.GetChild(0).GetChild(1).GetComponent<Image>().sprite = null;
         gameObject.transform.GetChild(0).GetChild(1).GetComponent<Image>().enabled = false;
 
-        gameObject.transform.GetChild(0).GetChild(2).GetComponent<Image>().sprite = null;
+        gameObject.transform.GetChild(0).GetChild(3).GetComponent<Image>().sprite = null;
+        gameObject.transform.GetChild(0).GetChild(3).GetComponent<Image>().enabled = false;
         gameObject.transform.GetChild(0).GetChild(2).GetComponent<Image>().enabled = false;
     }
 
@@ -206,14 +207,16 @@ public class PlayerMovement : MonoBehaviour
                     break;
             }
 
+            gameObject.transform.GetChild(0).GetChild(3).GetComponent<Image>().enabled = true;
+            gameObject.transform.GetChild(0).GetChild(3).GetComponent<Image>().sprite = spriteToDisplay;
             gameObject.transform.GetChild(0).GetChild(2).GetComponent<Image>().enabled = true;
-            gameObject.transform.GetChild(0).GetChild(2).GetComponent<Image>().sprite = spriteToDisplay;
         }
         else if (infoOpen)
         {
             infoOpen = false;
 
-            gameObject.transform.GetChild(0).GetChild(2).GetComponent<Image>().sprite = null;
+            gameObject.transform.GetChild(0).GetChild(3).GetComponent<Image>().sprite = null;
+            gameObject.transform.GetChild(0).GetChild(3).GetComponent<Image>().enabled = false;
             gameObject.transform.GetChild(0).GetChild(2).GetComponent<Image>().enabled = false;
         }
     }
