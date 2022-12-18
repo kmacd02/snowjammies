@@ -24,9 +24,12 @@ public class CameraMovement : MonoBehaviour
         this.infoOpen = gameObject.transform.parent.GetChild(1).GetComponent<PlayerMovement>().infoOpen;
 
         if (!infoOpen)
-            transform.position += (new Vector3(xMove, yMove, 0)) * Time.deltaTime * speed;
+        {
+            transform.position = new Vector3(gameObject.transform.parent.GetChild(1).transform.position.x, gameObject.transform.parent.GetChild(1).transform.position.y, -10);
+        }
     }
 
+    /*
     private void OnMove(InputValue movementValue)
     {
         if (infoOpen)
@@ -37,4 +40,5 @@ public class CameraMovement : MonoBehaviour
         xMove = movementVector.x;
         yMove = movementVector.y;
     }
+    */
 }
