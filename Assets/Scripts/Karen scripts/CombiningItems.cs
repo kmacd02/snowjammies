@@ -73,16 +73,18 @@ public class CombiningItems : MonoBehaviour
             if (item1 == "candle" || item2 == "candle")
             {
                 Debug.Log("F burn the house down");
+                GameOverManager.bgNum = 1;
                 mover.status = 1;
             }
             else if (item1 == "blowtorch" || item2 == "blowtorch")
             {
-                Debug.Log("F burn the house down");
+                Debug.Log("N");
                 mover.status = 1;
             }
             else if (item1 == "laptop" || item2 == "laptop")
             {
                 Debug.Log("W");
+                GameOverManager.bgNum = 0;
                 mover.status = 1;
             }
             else if (item1 == "toaster" || item2 == "toaster")
@@ -105,16 +107,19 @@ public class CombiningItems : MonoBehaviour
             if (item1 == "blowtorch" || item2 == "blowtorch")
             {
                 Debug.Log("F raise the chicken from the dead");
+                GameOverManager.bgNum = 2;
                 mover.status = 1;
             }
             else if (item1 == "laptop" || item2 == "laptop")
             {
                 Debug.Log("W");
+                GameOverManager.bgNum = 0;
                 mover.status = 1;
             }
             else if (item1 == "toaster" || item2 == "toaster")
             {
                 Debug.Log("W");
+                GameOverManager.bgNum = 0;
                 mover.status = 1;
             }
             else if (item1 == "fork" || item2 == "fork")
@@ -132,6 +137,7 @@ public class CombiningItems : MonoBehaviour
             if (item1 == "laptop" || item2 == "laptop")
             {
                 Debug.Log("F summons CS bro who tells you heat is bad for laptop performance (rants and you run out of time)");
+                GameOverManager.bgNum = 3;
                 mover.status = 1;
             }
             else if (item1 == "toaster" || item2 == "toaster")
@@ -142,6 +148,7 @@ public class CombiningItems : MonoBehaviour
             else if (item1 == "fork" || item2 == "fork")
             {
                 Debug.Log("W");
+                GameOverManager.bgNum = 6;
                 mover.status = 1;
             }
             else
@@ -154,6 +161,7 @@ public class CombiningItems : MonoBehaviour
             if (item1 == "toaster" || item2 == "toaster")
             {
                 Debug.Log("F Start playing Burnt ToaSt");
+                GameOverManager.bgNum = 4;
                 mover.status = 1;
             }
             else if (item1 == "fork" || item2 == "fork")
@@ -171,6 +179,7 @@ public class CombiningItems : MonoBehaviour
             if (item1 == "fork" || item2 == "fork")
             {
                 Debug.Log("F - Atomic bomb - mushroom cloud gif");
+                GameOverManager.bgNum = 5;
                 mover.status = 1;
             }
             else
