@@ -1,5 +1,17 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
-    <ui:VisualElement style="height: 1076px; max-height: 100%; -unity-background-image-tint-color: rgba(94, 94, 94, 0.69); background-color: rgba(101, 101, 101, 0.82);">
-        <ui:VisualElement name="VolumePanel" style="width: 40%; height: 75%; position: relative; left: 35%; top: 10%; background-color: rgba(79, 79, 79, 255);" />
+    <Style src="project://database/Assets/UX%20UI/TitleSS.uss?fileID=7433441132597879392&amp;guid=bc4d6ff1beb87154ca64ab6eb5d61915&amp;type=3#TitleSS" />
+    <ui:VisualElement name="VisualElement" style="height: 1076px; max-height: 100%; -unity-background-image-tint-color: rgba(94, 94, 94, 0.69); background-color: rgba(94, 94, 94, 0.76); left: -802px; top: -453px;">
+        <ui:VisualElement name="VolumePanel" style="width: 40%; height: 75%; position: absolute; left: 29%; top: 15%; background-color: rgba(77, 77, 77, 0); align-items: flex-start; justify-content: flex-start;">
+            <ui:Button display-tooltip-when-elided="true" name="BackVolume" class="button" style="background-image: url(&apos;project://database/Assets/UX%20UI/Kenzie%20Figma/Back.png?fileID=2800000&amp;guid=8209bcf1667559c42afe8181a6c642e4&amp;type=3#Back&apos;); left: 305px; top: 627px;" />
+            <ui:VisualElement name="BGMControl" usage-hints="None" style="width: 389px; align-items: center; justify-content: center; height: 125px; left: 188px; background-image: url(&apos;project://database/Assets/UX%20UI/Kenzie%20Figma/Music%20Volume.png?fileID=2800000&amp;guid=9ab663f731e184d3badc2835303ee877&amp;type=3#Music Volume&apos;); top: 196px;">
+                <ui:Slider value="0.5" high-value="1" show-input-field="false" name="BGMSlider" binding-path="BGM_Volume" focusable="true" style="width: 246px; height: 44px; top: 27px; left: -15px;" />
+            </ui:VisualElement>
+            <ui:VisualElement name="SFXControl" style="width: 389px; align-items: center; justify-content: center; height: 125px; left: 188px; background-image: url(&apos;project://database/Assets/UX%20UI/Kenzie%20Figma/SFX%20Volume.png?fileID=2800000&amp;guid=0c9b0a712f8df496da426b292d805b88&amp;type=3#SFX Volume&apos;); top: 241px;">
+                <ui:Slider value="0.5" high-value="1" show-input-field="false" name="SFXSlider" style="width: 246px; height: 44px; top: 27px; left: -15px;" />
+            </ui:VisualElement>
+            <ui:VisualElement name="MasterVolControl" style="width: 389px; align-items: center; justify-content: center; height: 125px; left: 188px; background-image: url(&apos;project://database/Assets/UX%20UI/Kenzie%20Figma/Master%20Volume.png?fileID=2800000&amp;guid=12f175c7e132f425c8d6f88cd9714604&amp;type=3#Master Volume&apos;); top: -226px;">
+                <ui:Slider value="0.5" high-value="1" show-input-field="false" name="MasterVolSlider" usage-hints="None" style="width: 246px; height: 44px; top: 27px; left: -15px;" />
+            </ui:VisualElement>
+        </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>

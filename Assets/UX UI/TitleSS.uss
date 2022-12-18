@@ -28,3 +28,30 @@
     rotate: -2deg;
     scale: 1.2 1.2;
 }
+
+.unity-base-slider__dragger {
+    background-image: url('project://database/Assets/UX%20UI/Kenzie%20Figma/Chicken.png?fileID=2800000&guid=270919f731b4fa54f911660a45c55e65&type=3#Chicken');
+    background-color: rgba(0, 0, 0, 0);
+    width: 58px;
+    height: 57px;
+    top: 7px;
+    border-left-color: rgba(0, 0, 0, 0);
+    border-right-color: rgba(0, 0, 0, 0);
+    border-top-color: rgba(0, 0, 0, 0);
+    border-bottom-color: rgba(0, 0, 0, 0);
+    left: 17px;
+}
+
+.unity-base-slider__tracker {
+    background-color: rgba(255, 255, 255, 0);
+    -unity-background-image-tint-color: rgba(255, 255, 255, 0);
+    opacity: 0.64;
+    border-left-color: rgba(0, 0, 0, 0);
+    border-right-color: rgba(0, 0, 0, 0);
+    border-top-color: rgba(0, 0, 0, 0);
+    border-bottom-color: rgba(0, 0, 0, 0);
+    width: 441px;
+    height: -46px;
+    left: auto;
+    max-width: 371px;
+}

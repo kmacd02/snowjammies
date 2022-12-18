@@ -1,7 +1,8 @@
 using UnityEngine.Audio;
 using UnityEngine;
 using System;
-using UnityEngine.UI;
+using UnityEngine.UIElements;
+using System.Diagnostics;
 
 public class AudioManager : MonoBehaviour
 {
@@ -11,43 +12,72 @@ public class AudioManager : MonoBehaviour
     [SerializeField] AudioSource BGM_Source;
     [SerializeField] AudioSource SFX_Source;
 
-    public Slider Master_volume;
-    public Slider BGM_volume;
-    public Slider SFX_volume;
+    [SerializeField] private AudioMixer masterMixer;
+    [SerializeField] private AudioMixerGroup bgmMixer;
+    [SerializeField] private AudioMixerGroup sfxMixer;
 
-    private static float BGM_Volume = 0.5f;// to change background music volume
-    private static float SFX_Volume = 0.5f;
-    private static float master_volume = 1.0f;
+    [Header("UI Volume Control")]
+    [SerializeField]
+    private VisualTreeAsset VolumeMenu;
+    private VisualElement VolumeStuff;
+
+    private static float BGM_Volume; //= 0.5f;// to change background music volume
+    private static float SFX_Volume; //= 0.5f;
+    private static float master_volume; //= 1.0f;
 
     public void Start()
     {
-        Master_volume.onValueChanged.AddListener (delegate {ValueChangeCheckMaster ();});
-        BGM_volume.onValueChanged.AddListener (delegate {ValueChangeCheckBGM ();});
-        SFX_volume.onValueChanged.AddListener (delegate {ValueChangeCheckSFX ();});
-        BGM_volume.value = BGM_Volume;
-        SFX_volume.value = SFX_Volume;
-        Master_volume.value = master_volume;
+        VolumeStuff = VolumeMenu.CloneTree();
+        UnityEngine.UIElements.Slider MasterVol = VolumeStuff.Q<Slider>("MasterVolSlider");
+        UnityEngine.UIElements.Slider BGMVol = VolumeStuff.Q<Slider>("BGMSlider");
+        UnityEngine.UIElements.Slider SFXVol = VolumeStuff.Q<Slider>("SFXSlider");
+
+        //BGM_volume.value = BGM_Volume;
+        //SFX_volume.value = SFX_Volume;
+        //master_volume.value = master_volume;
+
+        MasterVol.RegisterValueChangedCallback(evt =>
+        {
+            UnityEngine.Debug.Log(evt.newValue);
+        });
+
+        master_volume = MasterVol.value;
+        SFX_Volume = SFXVol.value;
+        BGM_Volume = BGMVol.value;
         BGM_Source.volume = BGM_Volume * master_volume;
         SFX_Source.volume = SFX_Volume * master_volume;
+
+        //MasterVol.onValueChanged.AddListener(delegate { ValueChangeCheckMaster(); });
+        //BGMVol.onValueChanged.AddListener(delegate { ValueChangeCheckBGM(); });
+        //SFXVol.onValueChanged.AddListener(delegate { ValueChangeCheckSFX(); });
+    }
+
+    public void convertToDB()
+    {
+        float masVol = master_volume;
+        float masDB = Mathf.Max(-80, 20 * Mathf.Log10(masVol));
+        PlayerPrefs.SetFloat("decibels", masDB);
+        masterMixer.SetFloat("Volume", masDB);
     }
 
     public void ValueChangeCheckMaster()
     {
-        master_volume = Master_volume.value;
+        //master_volume = Master_volume.value;
         BGM_Source.volume = BGM_Volume * master_volume;
         SFX_Source.volume = SFX_Volume * master_volume;
+
     }
 
     public void ValueChangeCheckBGM()
     {
-        BGM_Volume = BGM_volume.value;
-        BGM_Source.volume = BGM_Volume * master_volume;        
+        //BGM_Volume = BGM_volume.value;
+        BGM_Source.volume = BGM_Volume * master_volume;
     }
 
 
     public void ValueChangeCheckSFX()
     {
-        SFX_Volume = SFX_volume.value;
+       // SFX_Volume = SFX_volume.value;
         SFX_Source.volume = SFX_Volume * master_volume;
     }
 

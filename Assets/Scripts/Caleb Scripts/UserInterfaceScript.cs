@@ -3,16 +3,25 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 using UnityEngine.SceneManagement;
-
+using System.Diagnostics;
+//using System.Diagnostics;
 
 public class UserInterfaceScript : MonoBehaviour
 {
+
+
+    // Adding Headers to UIDocument
     [Header("How To")]
     [SerializeField]
     private VisualTreeAsset HowToMenu;
     private VisualElement Tutorial;
+    
+    [Header("UI Volume Control")]
+    [SerializeField]
+    private VisualTreeAsset VolumeMenu;
+    private VisualElement VolumeStuff;
 
-
+    // Initializing Main Menu Buttons
     private UIDocument doc;
     public Button PlayButton;
     public Button OptionsButton;
@@ -20,15 +29,22 @@ public class UserInterfaceScript : MonoBehaviour
     public Button MenuButton;
     public Button HowToButton;
 
+    float test2;
+    public Slider MasterVol;
+    public Slider BGMVol;
+    public Slider SFXVol;
 
+    // Initializing VisualElements in .uxml files
     private VisualElement Container;
-    private VisualElement HowToWrapper;
+    //private VisualElement HowToWrapper;
+    //private VisualElement VolumePanel;
+
     void Start()
     {
         var root = GetComponent<UIDocument>().rootVisualElement;
         Container = root.Q<VisualElement>("Container");
-        HowToWrapper = root.Q<VisualElement>("HowToWrapper");
-
+        //HowToWrapper = root.Q<VisualElement>("HowToWrapper");
+        
 
         // Gathering Button Roots
 
@@ -42,12 +58,23 @@ public class UserInterfaceScript : MonoBehaviour
         Tutorial = HowToMenu.CloneTree();
         var BackButton = Tutorial.Q<Button>("BackButton");
 
+        VolumeStuff = VolumeMenu.CloneTree();
+        var BackVolume = VolumeStuff.Q<Button>("BackVolume");
+
+        //VolumeStuff = VolumeMenu.CloneTree();
+        //MasterVol = VolumeStuff.Q<Slider>("MasterVolSlider");
+        //BGMVol = VolumeStuff.Q<Slider>("BGMSlider");
+        //SFXVol = VolumeStuff.Q<Slider>("SFXSlider");
 
         PlayButton.clicked += PlayGame;
-        //OptionsButton.clicked += SettingsMenu;
+        OptionsButton.clicked += VolumeSettings;
         QuitButton.clicked += ExitGame;
         BackButton.clicked += BackButtonClicked;
         HowToButton.clicked += DisplayTutorial;
+        BackVolume.clicked += BackButtonClicked;
+
+        //test2 = MasterVol.value;
+
     }
 
     void PlayGame()
@@ -70,14 +97,17 @@ public class UserInterfaceScript : MonoBehaviour
         Container.Add(QuitButton);
     }
 
-    //void HowToButtonPressed()
-    //{
+    void VolumeSettings()
+    {
+        Container.Clear();
+        Container.Add(VolumeStuff);
 
-    //}
+    }
 
     void ExitGame()
     {
         Application.Quit();
+        UnityEngine.Debug.Log("Quit.");
     }
 
 
