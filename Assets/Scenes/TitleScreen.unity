@@ -260,7 +260,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1423, y: 800}
+  m_SizeDelta: {x: 1920, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &808463131
 MonoBehaviour:
@@ -282,7 +282,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: ab8eed7349dbc9d48a93302b3a4ed6bd, type: 3}
+  m_Sprite: {fileID: 21300000, guid: bcfeda109e4128b4b95a6ed26eb57fae, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -359,7 +359,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: ab8eed7349dbc9d48a93302b3a4ed6bd, type: 3}
+  m_Sprite: {fileID: 21300000, guid: bcfeda109e4128b4b95a6ed26eb57fae, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -430,7 +430,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 165.99655
+  orthographic size: 400.17407
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -454,12 +454,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1105300853}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 626, y: 353, z: -10}
+  m_LocalScale: {x: 3.208435, y: 3.3773, z: 3.3773}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1884797251
 GameObject:
@@ -576,7 +576,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2112278798
 MonoBehaviour:
@@ -590,3 +590,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a77e3b6ff467cf9419fd93b857746a2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  HowToMenu: {fileID: 9197481963319205126, guid: ebb6c3ac95822d64591af28564c9cf3a, type: 3}
