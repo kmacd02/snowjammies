@@ -9,6 +9,8 @@ public class CombiningItems : MonoBehaviour
     [SerializeField] GameManager mover;
     [SerializeField] WorkspaceItemDisplayer displayer;
 
+    private int neutral_counter = 0;
+
 
     //**************************************************
     //resets items (trash items, may need to replace items at their locations)
@@ -77,7 +79,16 @@ public class CombiningItems : MonoBehaviour
             {
                 Debug.Log("N");
                 mover.flavorTextNum = 0;
-                mover.status = 2;                
+                neutral_counter++;
+                if (neutral_counter == 3)
+                {
+                    GameOverManager.bgNum = 8;
+                    mover.status = 1;
+                }
+                else{
+                    mover.status = 2; 
+                }
+                               
             }
             else if (item1 == "blowtorch" || item2 == "blowtorch")
             {
@@ -157,7 +168,15 @@ public class CombiningItems : MonoBehaviour
             {
                 Debug.Log("N toaster melts - burnt toast reference?");
                 mover.flavorTextNum = 10;
-                mover.status = 2;
+                neutral_counter++;
+                if (neutral_counter == 3)
+                {
+                    GameOverManager.bgNum = 8;
+                    mover.status = 1;
+                }
+                else{
+                    mover.status = 2; 
+                }
             }
             else if (item1 == "fork" || item2 == "fork")
             {
@@ -184,7 +203,15 @@ public class CombiningItems : MonoBehaviour
             {
                 Debug.Log("N Stab the screen with the fork. Laptop breaks.");
                 mover.flavorTextNum = 13;
-                mover.status = 2;
+                neutral_counter++;
+                if (neutral_counter == 3)
+                {
+                    GameOverManager.bgNum = 8;
+                    mover.status = 1;
+                }
+                else{
+                    mover.status = 2; 
+                }
             }
             else
             {

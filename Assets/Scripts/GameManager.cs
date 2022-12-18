@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField] private float fullGameTime = 60f; // 60 seconds for a full game
     [SerializeField] private float textShowTime = 4f;
+    [SerializeField] SimpleAudioManager audio;
 
     public int status; //0 = continue, 1 = win/fail, 2 = neutral
     public int flavorTextNum = 0;
@@ -27,6 +28,10 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private Sprite[] flavorTexts;
 
+    private float timer = 60;
+    [SerializeField] private Slider momTimer;
+    private bool stopTimer = false;
+
 
     //[SerializeField] private float fadeSpeed = 1.0f;
     //TODO: Add array of sprites for gameover screens
@@ -37,7 +42,10 @@ public class GameManager : MonoBehaviour
         playerInput = playerInputObject.GetComponent<PlayerInput>();
         status = 0;
         StartCoroutine(FullGame()); // full game time
+        audio.PlayBGMWithoutLoop(0);
 
+        momTimer.maxValue = fullGameTime;
+        momTimer.value = timer;
     }
 
     public void restartGame()
@@ -50,6 +58,18 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        timer -= Time.deltaTime;
+
+        if (timer <= 0)
+        {
+            stopTimer = true;
+        }
+
+        if (!stopTimer)
+        {
+            momTimer.value = timer;
+        }
+
         switch(status)
         {
             case 0: //continue
@@ -75,6 +95,7 @@ public class GameManager : MonoBehaviour
     private IEnumerator FullGame()
     {
         yield return new WaitForSeconds(fullGameTime); // full game
+        Debug.Log("fullGameTime: complete");
 
         //Display gameover screen
         //SceneManager.LoadScene("EndScreen");
