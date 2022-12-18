@@ -18,7 +18,6 @@ public class PlayerMovement : MonoBehaviour
     public bool infoOpen = false;
     private bool forward = true;
     private bool right = true;
-    private Rigidbody2D rb = null;
 
     [SerializeField] CombiningItems combiner;
 
@@ -57,8 +56,6 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        rb = gameObject.GetComponent<Rigidbody2D>();
-
         gameObject.transform.GetChild(0).GetChild(1).GetComponent<Image>().sprite = null;
         gameObject.transform.GetChild(0).GetChild(1).GetComponent<Image>().enabled = false;
 
@@ -67,6 +64,7 @@ public class PlayerMovement : MonoBehaviour
         gameObject.transform.GetChild(0).GetChild(2).GetComponent<Image>().enabled = false;
     }
 
+    // Update is called once per frame
     void FixedUpdate()
     {
         if (!infoOpen)
@@ -122,8 +120,7 @@ public class PlayerMovement : MonoBehaviour
                 }
             }
 
-            Vector2 moveAmount = (new Vector2(xMove, yMove)) * Time.deltaTime * speed;
-            rb.MovePosition(rb.position + moveAmount);
+            transform.position += (new Vector3(xMove, yMove, 0)) * Time.deltaTime * speed;
         }
     }
 
@@ -332,15 +329,5 @@ public class PlayerMovement : MonoBehaviour
         }
 
         Debug.Log("on trigger exit");
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        // gameObject.GetComponent<Rigidbody2D>().isKinematic = true;
-    }
-
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-        // gameObject.GetComponent<Rigidbody2D>().isKinematic = false;
     }
 }
