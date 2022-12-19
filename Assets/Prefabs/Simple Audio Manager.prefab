@@ -305,7 +305,7 @@ MonoBehaviour:
   BGM_Source: {fileID: 396344235549428654}
   SFX_Source: {fileID: 1561376238462818211}
   BGM:
-  - {fileID: 8300000, guid: 88c89b950e05c8b4f8e67deeb499b7d2, type: 3}
+  - {fileID: 8300000, guid: e5b031d9cfb508d4fbf178300c6ef72b, type: 3}
   - {fileID: 8300000, guid: efea1321acc629b4b9c5498335dcd236, type: 3}
   - {fileID: 8300000, guid: 482a19ff2646c9645b3cb90532b1803a, type: 3}
   SFX:
