@@ -308,4 +308,9 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 88c89b950e05c8b4f8e67deeb499b7d2, type: 3}
   - {fileID: 8300000, guid: efea1321acc629b4b9c5498335dcd236, type: 3}
   - {fileID: 8300000, guid: 482a19ff2646c9645b3cb90532b1803a, type: 3}
-  SFX: []
+  SFX:
+  - {fileID: 8300000, guid: 575c486e6488e456e8abd899eb4ebfe5, type: 3}
+  - {fileID: 8300000, guid: 2fb9e3a51df40465095733fd2fdab8a7, type: 3}
+  - {fileID: 8300000, guid: ad14b595b88684ed3b96470ac65b07c6, type: 3}
+  - {fileID: 8300000, guid: 1971ead37fb004c4bbf593e5e9127163, type: 3}
+  - {fileID: 8300000, guid: 4b8c6deb8de664bba81e645c3655aedd, type: 3}
