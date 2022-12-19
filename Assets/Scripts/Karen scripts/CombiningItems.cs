@@ -8,6 +8,7 @@ public class CombiningItems : MonoBehaviour
     public string item2 = "";
     [SerializeField] GameManager mover;
     [SerializeField] WorkspaceItemDisplayer displayer;
+    [SerializeField] SimpleAudioManager audio;
 
     private int neutral_counter = 0;
 
@@ -30,6 +31,8 @@ public class CombiningItems : MonoBehaviour
     //**************************************************
     public void addItem(string itemName)
     {
+        audio.PlaySFX(1);
+
         List<string> list = new List<string> { "blanket", "candle", "blowtorch", "laptop", "toaster", "fork"};
         if (!list.Contains(itemName))
         {
@@ -73,6 +76,8 @@ public class CombiningItems : MonoBehaviour
     //**************************************************
     private void combineItems()
     {
+        audio.PlaySFX(2);
+
         if (item1 == "blanket" || item2 == "blanket")
         {
             if (item1 == "candle" || item2 == "candle")
@@ -93,6 +98,8 @@ public class CombiningItems : MonoBehaviour
             else if (item1 == "blowtorch" || item2 == "blowtorch")
             {
                 Debug.Log("F - burn the house down");
+                audio.PlaySFX(3);
+                audio.PlaySFX(4);
                 GameOverManager.bgNum = 1;
                 mover.flavorTextNum = 1;
                 mover.status = 1;                
@@ -100,6 +107,7 @@ public class CombiningItems : MonoBehaviour
             else if (item1 == "laptop" || item2 == "laptop")
             {
                 Debug.Log("W");
+                audio.PlaySFX(5);
                 GameOverManager.bgNum = 0;
                 mover.flavorTextNum = 2;
                 mover.status = 1;                
@@ -126,6 +134,7 @@ public class CombiningItems : MonoBehaviour
             if (item1 == "blowtorch" || item2 == "blowtorch")
             {
                 Debug.Log("F raise the chicken from the dead");
+                audio.PlaySFX(4);
                 GameOverManager.bgNum = 2;
                 mover.flavorTextNum = 5;
                 mover.status = 1;                
@@ -133,6 +142,7 @@ public class CombiningItems : MonoBehaviour
             else if (item1 == "laptop" || item2 == "laptop")
             {
                 Debug.Log("W");
+                audio.PlaySFX(5);
                 GameOverManager.bgNum = 0;
                 mover.flavorTextNum = 6;
                 mover.status = 1;                
@@ -140,6 +150,7 @@ public class CombiningItems : MonoBehaviour
             else if (item1 == "toaster" || item2 == "toaster")
             {
                 Debug.Log("W");
+                audio.PlaySFX(5);
                 GameOverManager.bgNum = 0;
                 mover.flavorTextNum = 7;
                 mover.status = 1;                
@@ -160,6 +171,7 @@ public class CombiningItems : MonoBehaviour
             if (item1 == "laptop" || item2 == "laptop")
             {
                 Debug.Log("F summons CS bro who tells you heat is bad for laptop performance (rants and you run out of time)");
+                audio.PlaySFX(4);
                 GameOverManager.bgNum = 3;
                 mover.flavorTextNum = 9;
                 mover.status = 1;
@@ -181,6 +193,7 @@ public class CombiningItems : MonoBehaviour
             else if (item1 == "fork" || item2 == "fork")
             {
                 Debug.Log("W");
+                audio.PlaySFX(5);
                 GameOverManager.bgNum = 6;
                 mover.flavorTextNum = 11;
                 mover.status = 1;
@@ -195,6 +208,7 @@ public class CombiningItems : MonoBehaviour
             if (item1 == "toaster" || item2 == "toaster")
             {
                 Debug.Log("F Start playing Burnt ToaSt");
+                audio.PlaySFX(4);
                 GameOverManager.bgNum = 4;
                 mover.flavorTextNum = 12;
                 mover.status = 1;
@@ -223,6 +237,7 @@ public class CombiningItems : MonoBehaviour
             if (item1 == "fork" || item2 == "fork")
             {
                 Debug.Log("F - Atomic bomb - mushroom cloud gif");
+                audio.PlaySFX(4);
                 GameOverManager.bgNum = 5;
                 mover.flavorTextNum = 14;
                 mover.status = 1;

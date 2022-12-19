@@ -20,6 +20,7 @@ public class PlayerMovement : MonoBehaviour
     private bool right = true;
     private Rigidbody2D rb = null;
 
+    [SerializeField] SimpleAudioManager audio;
     [SerializeField] CombiningItems combiner;
 
     [SerializeField] GameObject blanket;
@@ -202,6 +203,8 @@ public class PlayerMovement : MonoBehaviour
                 Destroy(collision.gameObject);
                 collidedObject = null;
 
+                audio.PlaySFX(1);
+
                 Debug.Log(heldItem);
             }
 
@@ -268,6 +271,8 @@ public class PlayerMovement : MonoBehaviour
         if (heldItem != "" && !infoOpen)
         {
             infoOpen = true;
+
+            audio.PlaySFX(0);
 
             Sprite spriteToDisplay = null;
             switch (heldItem)
