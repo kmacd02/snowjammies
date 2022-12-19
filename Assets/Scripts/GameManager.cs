@@ -101,7 +101,7 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator FullGame()
     {
-        yield return new WaitForSeconds(fullGameTime); // full game
+        yield return new WaitForSeconds(120); // full game
         Debug.Log("fullGameTime: complete");
 
         GameOverManager.bgNum = 7;
