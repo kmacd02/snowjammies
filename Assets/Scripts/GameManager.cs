@@ -47,6 +47,9 @@ public class GameManager : MonoBehaviour
         StartCoroutine(FullGame()); // full game time
         audio.PlayBGMWithoutLoop(0);
 
+        flavorTextNum = 15;
+        StartCoroutine((showFlavorText()));
+
         momTimer.maxValue = fullGameTime;
         momTimer.value = timer;
     }
