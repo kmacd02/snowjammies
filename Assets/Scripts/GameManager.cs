@@ -10,7 +10,7 @@ using UnityEngine.InputSystem;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] private float fullGameTime = 90f; // 60 seconds for a full game
+    [SerializeField] private float fullGameTime = 120f; // 60 seconds for a full game
     [SerializeField] private float textShowTime = 4f;
     [SerializeField] SimpleAudioManager audio;
 
