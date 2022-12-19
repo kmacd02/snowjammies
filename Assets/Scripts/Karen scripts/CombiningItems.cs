@@ -8,6 +8,7 @@ public class CombiningItems : MonoBehaviour
     public string item2 = "";
     [SerializeField] GameManager mover;
     [SerializeField] WorkspaceItemDisplayer displayer;
+    [SerializeField] SimpleAudioManager audio;
 
     private int neutral_counter = 0;
 
@@ -30,6 +31,8 @@ public class CombiningItems : MonoBehaviour
     //**************************************************
     public void addItem(string itemName)
     {
+        audio.PlaySFX(1);
+
         List<string> list = new List<string> { "blanket", "candle", "blowtorch", "laptop", "toaster", "fork"};
         if (!list.Contains(itemName))
         {
@@ -73,6 +76,8 @@ public class CombiningItems : MonoBehaviour
     //**************************************************
     private void combineItems()
     {
+        audio.PlaySFX(2);
+
         if (item1 == "blanket" || item2 == "blanket")
         {
             if (item1 == "candle" || item2 == "candle")

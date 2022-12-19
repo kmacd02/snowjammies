@@ -88,11 +88,17 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 1cfccc26c3a2df94bad10bddfc7c0001, type: 3}
   SFX:
   - {fileID: 8300000, guid: 07ed8bbcabef98c45bc833e081397c6b, type: 3}
+  - {fileID: 8300000, guid: 2fb9e3a51df40465095733fd2fdab8a7, type: 3}
+  - {fileID: 8300000, guid: ad14b595b88684ed3b96470ac65b07c6, type: 3}
+  - {fileID: 8300000, guid: 1971ead37fb004c4bbf593e5e9127163, type: 3}
+  - {fileID: 8300000, guid: 4b8c6deb8de664bba81e645c3655aedd, type: 3}
   BGM_Source: {fileID: 7023158378123700954}
   SFX_Source: {fileID: 7023158378318947148}
-  Master_volume: {fileID: 7023158378455315999}
-  BGM_volume: {fileID: 7023158379260966779}
-  SFX_volume: {fileID: 7023158378111083291}
+  uiHell: {fileID: 0}
+  masterMixer: {fileID: 0}
+  bgmMixer: {fileID: 0}
+  sfxMixer: {fileID: 0}
+  VolumeMenu: {fileID: 0}
 --- !u!1 &7023158377791527412
 GameObject:
   m_ObjectHideFlags: 0
