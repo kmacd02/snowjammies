@@ -535,6 +535,34 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2300958830397354927, guid: 1e530a2996794c1478984dd0e148182a, type: 3}
+      propertyPath: SFX.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2300958830397354927, guid: 1e530a2996794c1478984dd0e148182a, type: 3}
+      propertyPath: SFX.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 07ed8bbcabef98c45bc833e081397c6b, type: 3}
+    - target: {fileID: 2300958830397354927, guid: 1e530a2996794c1478984dd0e148182a, type: 3}
+      propertyPath: SFX.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 2fb9e3a51df40465095733fd2fdab8a7, type: 3}
+    - target: {fileID: 2300958830397354927, guid: 1e530a2996794c1478984dd0e148182a, type: 3}
+      propertyPath: SFX.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: ad14b595b88684ed3b96470ac65b07c6, type: 3}
+    - target: {fileID: 2300958830397354927, guid: 1e530a2996794c1478984dd0e148182a, type: 3}
+      propertyPath: SFX.Array.data[3]
+      value: 
+      objectReference: {fileID: 8300000, guid: 1971ead37fb004c4bbf593e5e9127163, type: 3}
+    - target: {fileID: 2300958830397354927, guid: 1e530a2996794c1478984dd0e148182a, type: 3}
+      propertyPath: SFX.Array.data[4]
+      value: 
+      objectReference: {fileID: 8300000, guid: 4b8c6deb8de664bba81e645c3655aedd, type: 3}
+    - target: {fileID: 2300958830397354927, guid: 1e530a2996794c1478984dd0e148182a, type: 3}
+      propertyPath: SFX.Array.data[5]
+      value: 
+      objectReference: {fileID: 8300000, guid: 575c486e6488e456e8abd899eb4ebfe5, type: 3}
     - target: {fileID: 6696114267898037658, guid: 1e530a2996794c1478984dd0e148182a, type: 3}
       propertyPath: m_Name
       value: Simple Audio Manager
