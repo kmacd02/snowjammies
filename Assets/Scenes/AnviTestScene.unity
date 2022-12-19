@@ -4192,17 +4192,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 11a184b7e8446e349830c2bbd5685665, type: 3}
   - {fileID: 21300000, guid: e71bc7369b3afa74d8291bef8b05c684, type: 3}
   - {fileID: 21300000, guid: fd860e361ba2cc24a9fab6396cfb9e9b, type: 3}
+  - {fileID: 21300000, guid: e29285dad93dc3d4da8b2cf63aba5b3d, type: 3}
   momTimer: {fileID: 1783029954}
-  bgs:
-  - {fileID: 21300000, guid: 3c65e8a759a7a4fff9c5fb92d3cf1de9, type: 3}
-  - {fileID: 21300000, guid: a0e79b5c4295b497d81507c8b89279b9, type: 3}
-  - {fileID: 0}
-  - {fileID: 21300000, guid: 386f689d43234453d84660e13a931f57, type: 3}
-  - {fileID: 0}
-  - {fileID: 21300000, guid: b95203436cdd440ad872db65f230c765, type: 3}
-  - {fileID: 21300000, guid: f07019e59e56f4271b8c7f3d1eb12f0c, type: 3}
-  - {fileID: 21300000, guid: 51cc653238b4a41f2b394bd6578e8bc3, type: 3}
-  - {fileID: 21300000, guid: 51cc653238b4a41f2b394bd6578e8bc3, type: 3}
 --- !u!4 &1781122158
 Transform:
   m_ObjectHideFlags: 0
