@@ -19,8 +19,10 @@ public class CombiningItems : MonoBehaviour
     //TODO: put items back
     public void reset()
     {
+        Debug.Log("hit reset");
         item1 = "";
         item2 = "";
+        displayer.itemName = "";
     }
 
     //TODO: change if items are updated
@@ -93,6 +95,7 @@ public class CombiningItems : MonoBehaviour
                 else{
                     mover.status = 2; 
                 }
+                reset();
                                
             }
             else if (item1 == "blowtorch" || item2 == "blowtorch")
@@ -116,13 +119,15 @@ public class CombiningItems : MonoBehaviour
             {
                 Debug.Log("N");
                 mover.flavorTextNum = 3;
-                mover.status = 2;                
+                mover.status = 2; 
+                reset();               
             }
             else if (item1 == "fork" || item2 == "fork")
             {
                 Debug.Log("N");
                 mover.flavorTextNum = 4;
-                mover.status = 2;                
+                mover.status = 2;   
+                reset();             
             }
             else
             {
@@ -159,7 +164,8 @@ public class CombiningItems : MonoBehaviour
             {
                 Debug.Log("N");
                 mover.flavorTextNum = 8;
-                mover.status = 2;                
+                mover.status = 2;
+                reset();                
             }
             else
             {
@@ -189,6 +195,7 @@ public class CombiningItems : MonoBehaviour
                 else{
                     mover.status = 2; 
                 }
+                reset();
             }
             else if (item1 == "fork" || item2 == "fork")
             {
@@ -226,6 +233,7 @@ public class CombiningItems : MonoBehaviour
                 else{
                     mover.status = 2; 
                 }
+                reset();
             }
             else
             {
