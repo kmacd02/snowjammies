@@ -28,7 +28,7 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private Sprite[] flavorTexts;
 
-    private float timer = 60;
+    private float timer = 120;
     [SerializeField] private Slider momTimer;
     private bool stopTimer = false;
 
@@ -50,7 +50,7 @@ public class GameManager : MonoBehaviour
         flavorTextNum = 15;
         StartCoroutine((showFlavorText()));
 
-        momTimer.maxValue = fullGameTime;
+        momTimer.maxValue = 120;
         momTimer.value = timer;
     }
 
@@ -64,8 +64,6 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        timer -= Time.deltaTime;
-
         if (timer <= 0)
         {
             stopTimer = true;
@@ -73,6 +71,7 @@ public class GameManager : MonoBehaviour
 
         if (!stopTimer)
         {
+            timer -= Time.deltaTime;
             momTimer.value = timer;
         }
 
