@@ -1,8 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
+using TMPro;
 using UnityEngine.SceneManagement;
+using UnityEngine.InputSystem;
 
 public class GameOverManager : MonoBehaviour
 {
@@ -11,6 +14,8 @@ public class GameOverManager : MonoBehaviour
     public static float BGMVol = 0.5f;
 
     [SerializeField] private Sprite[] bgs;
+
+    [SerializeField] GameObject credits;
     //I declared this in GameManager and made it public.
 
     [SerializeField] Image gameOverBG;
@@ -37,6 +42,14 @@ public class GameOverManager : MonoBehaviour
 
     public void toMainMenu()
     {
+        StartCoroutine(showCredits());
+    }
+
+    private IEnumerator showCredits()
+    {
+        credits.SetActive(true);
+        yield return new WaitForSeconds(4f);        
         SceneManager.LoadScene("TitleScreen");
+        credits.SetActive(false);
     }
 }
