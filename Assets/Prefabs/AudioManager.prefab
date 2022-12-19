@@ -92,6 +92,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: ad14b595b88684ed3b96470ac65b07c6, type: 3}
   - {fileID: 8300000, guid: 1971ead37fb004c4bbf593e5e9127163, type: 3}
   - {fileID: 8300000, guid: 4b8c6deb8de664bba81e645c3655aedd, type: 3}
+  - {fileID: 8300000, guid: 575c486e6488e456e8abd899eb4ebfe5, type: 3}
   BGM_Source: {fileID: 7023158378123700954}
   SFX_Source: {fileID: 7023158378318947148}
   uiHell: {fileID: 0}
