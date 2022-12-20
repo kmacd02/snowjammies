@@ -5076,7 +5076,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fullGameTime: 60
-  textShowTime: 5
+  textShowTime: 6
   audio: {fileID: 2065099136}
   status: 0
   flavorTextNum: 0
