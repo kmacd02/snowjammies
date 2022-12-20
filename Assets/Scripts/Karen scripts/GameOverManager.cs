@@ -50,6 +50,6 @@ public class GameOverManager : MonoBehaviour
         credits.SetActive(true);
         yield return new WaitForSeconds(4f);        
         SceneManager.LoadScene("TitleScreen");
-        credits.SetActive(false);
+        //credits.SetActive(false);
     }
 }
