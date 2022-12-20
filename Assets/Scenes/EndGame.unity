@@ -402,7 +402,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -783,7 +783,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: f07019e59e56f4271b8c7f3d1eb12f0c, type: 3}
   - {fileID: 21300000, guid: 51cc653238b4a41f2b394bd6578e8bc3, type: 3}
   - {fileID: 21300000, guid: 51cc653238b4a41f2b394bd6578e8bc3, type: 3}
-  credits: {fileID: 0}
+  credits: {fileID: 825796882}
   gameOverBG: {fileID: 717393300}
   audio: {fileID: 1158928458}
 --- !u!1 &1934020992
