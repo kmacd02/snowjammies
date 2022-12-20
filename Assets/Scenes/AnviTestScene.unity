@@ -4819,11 +4819,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7076042366213327314, guid: b872ee490da9e448aa2a7bedef66905f, type: 3}
       propertyPath: m_Points.Array.data[0].x
-      value: -0.53556585
+      value: -0.47937393
       objectReference: {fileID: 0}
     - target: {fileID: 7076042366213327314, guid: b872ee490da9e448aa2a7bedef66905f, type: 3}
       propertyPath: m_Points.Array.data[0].y
-      value: 7.1113048
+      value: 5.088411
       objectReference: {fileID: 0}
     - target: {fileID: 7076042366213327314, guid: b872ee490da9e448aa2a7bedef66905f, type: 3}
       propertyPath: m_Points.Array.data[1].x
